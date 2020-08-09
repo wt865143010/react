@@ -1,0 +1,50 @@
+.allTopBox{
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.topBox{
+    width: 25%;
+    text-align: center;
+}
+.topBox>select{
+    width: 150px;
+    height: 30px;
+}
+.middleBox{
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.middleBox>div{
+    margin-left: 100px;
+}
+.bottomBox{
+    width: 100%;
+    height: 50px;
+    text-align: left;
+}
+.bottomBox input{
+    border: none;
+    background-color: #61dafb;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 50px;
+}
+.bottomBox input:nth-of-type(2){
+    background-color: darkgrey;
+}
+.myUl{
+    list-style: none;
+    margin-left: 0;
+    display: flex;
+    border-top: 1px solid black;
+    padding-top: 30px;
+}
+.myUl li{
+    width: 50px;
+    height: 30px;
+    border: 1px solid slategray;
+}
