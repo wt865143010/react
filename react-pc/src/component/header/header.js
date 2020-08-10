@@ -40,16 +40,54 @@ class header extends Component {
                         </div>
                         <div className='headerRightBottom'>
                             <ul>
-                                <li>王牌ageLOC</li>
-                                <li>护肤</li>
-                                <li>身体护理</li>
-                                <li>彩妆</li>
-                                <li>营养健康</li>
-                                <li>套装专区</li>
-                                <li>促销专区</li>
-                                <li>en悦家</li>
-                                <li>善的力量</li>
-                                <li>发现更多</li>
+                                <li>
+                                    <span>王牌ageLOC</span>
+                                    <div className='selBox'>
+                                        <ul>
+                                            <li>ageLOC LumiSpa</li>
+                                            <li>ageLOC Spa</li>
+                                            <li>ageLOC活颜抗老系列</li>
+                                            <li>ageLOC焕新系列</li>
+                                            <li>ageLOC R²</li>
+                                            <li>ageLOC TR90(普通食品)</li>
+                                        </ul>
+                                        <ul>
+                                            <li>ageLOC Me</li>
+                                            <li>ageLOC Nutriol</li>
+                                            <li>ageLOC睛致按摩眼霜</li>
+                                            <li>ageLOC精油系列</li>
+                                            <li>ageLOC TR90(保健食品)</li>
+                                            <li>ageLOC Boost</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    护肤
+                                </li>
+                                <li>
+                                    身体护理
+                                </li>
+                                <li>
+                                    彩妆
+                                </li>
+                                <li>
+                                    养健康
+                                </li>
+                                <li>
+                                    套装专区
+                                </li>
+                                <li>
+                                    促销专区
+                                </li>
+                                <li>
+                                    en悦家
+                                </li>
+                                <li>
+                                    善的力量
+                                </li>
+                                <li>
+                                    发现更多
+                                </li>
                             </ul>
                         </div>
                     </div>

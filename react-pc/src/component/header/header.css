@@ -1,14 +1,14 @@
 .homeHeader{
     width: 100%;
     height: 120px;
-    border: 1px solid red;
+    /*border: 1px solid red;  */
     background-color: white;
 }
 .headerBody{
     width: 60%;
     margin: 0 auto;
     text-align: left;
-    border: 1px solid gold;
+    /*border: 1px solid gold;*/
     display: flex;
     margin-top: 10px;
 }
@@ -55,7 +55,20 @@
     font-size: 14px;
     font-weight: 600;
 }
-.headerRightBottom ul>li:hover{
+.headerRightBottom ul>li>span:hover{
     color: #00A0AF;
     cursor: pointer;
+}
+.selBox{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    border: 1px solid gold;
+}
+.selBox>ul{
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
 }
