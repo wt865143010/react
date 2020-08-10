@@ -1,0 +1,95 @@
+.heng {
+    color: red;
+    display: inline;
+    margin-right: 10px;
+}
+.myreturn {
+    margin-left: 10px;
+}
+.mystate span {
+    color: red;
+}
+.mystate {
+    text-align: left;
+}
+
+.myorder {
+    display: flex;
+    height: 200px;
+    outline: 1px solid red;
+}
+.mydan {
+    text-align: left;
+    border-right: 1px solid gray;
+    width: 30%;
+}
+.myyouhui {
+    width: 70%;
+}
+
+.mydan p {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0 0;
+}
+.myone {
+    color: gray;
+    font-weight: lighter;
+}
+.xiangshou {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-left: 20px;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+}
+.youhuiquan {
+    text-align: left;
+    margin-left: 20px;
+}
+
+
+/*发货单*/
+.myHeadTitle{
+    background-color: rgb(204,204,204);
+    height: 30px;
+    line-height: 30px;
+}
+.yourHuo {
+    margin-top: 30px;
+}
+.yourHuo h2 {
+    text-align: left;
+}
+.yourHuo .myHeadTitle {
+    text-align: left;
+}
+
+
+/*收货信息*/
+/*收货信息*/
+.shouhuo {
+
+    display: flex;
+    text-align: left;
+    margin-top: 50px;
+    border: 1px solid rgba(223, 223, 223, 0.59);
+}
+.shouren {
+    width: 25%;
+    border-right: 1px solid gray;
+}
+.zhifu {
+    width: 25%;
+    border-right: 1px solid gray;
+}
+.fapiao {
+    width: 25%;
+}
+.peisong {
+    width: 25%;
+    border-right: 1px solid gray;
+}
+
+
