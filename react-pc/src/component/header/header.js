@@ -40,8 +40,8 @@ class header extends Component {
                         </div>
                         <div className='headerRightBottom'>
                             <ul>
-                                <li>
-                                    <span>王牌ageLOC</span>
+                                <li className='ageLOC'>
+                                    <div>王牌ageLOC</div>
                                     <div className='selBox'>
                                         <ul>
                                             <li>ageLOC LumiSpa</li>
@@ -62,31 +62,31 @@ class header extends Component {
                                     </div>
                                 </li>
                                 <li>
-                                    护肤
+                                    <div>护肤</div>
                                 </li>
                                 <li>
-                                    身体护理
+                                    <div>身体护理</div>
                                 </li>
                                 <li>
-                                    彩妆
+                                    <div>彩妆</div>
                                 </li>
                                 <li>
-                                    养健康
+                                    <div>养健康</div>
                                 </li>
                                 <li>
-                                    套装专区
+                                    <div>套装专区</div>
                                 </li>
                                 <li>
-                                    促销专区
+                                    <div>促销专区</div>
                                 </li>
                                 <li>
-                                    en悦家
+                                    <div>en悦家</div>
                                 </li>
                                 <li>
-                                    善的力量
+                                    <div>善的力量</div>
                                 </li>
                                 <li>
-                                    发现更多
+                                    <div>发现更多</div>
                                 </li>
                             </ul>
                         </div>
