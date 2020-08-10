@@ -1,0 +1,13 @@
+select{
+    width: 80%;
+    height: 40px;
+}
+.submit{
+    width: 100px!important;
+    background-color: #00A0AF;
+    color: white;
+    border: none;
+}
+.CN{
+    width: 50px;
+}
