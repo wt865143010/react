@@ -8,7 +8,6 @@ import Addproductbaseinfo from "./Addproductbaseinfo";
 import { Tabs } from 'antd';
 import Product_price from "./Product_price";
 import UpperandLower from "./UpperandLower";
-import Product_description from "./Product_description";
 
 
 const { TabPane } = Tabs;
@@ -29,10 +28,10 @@ constructor(props) {
 
     render() {
         return (
-        <div style={{marginLeft:"20px"}}>
-                <div style={{textAlign:"left"}}>产品管理>发布新产品</div>
+        <div className="productbaseinfo">
+                <div>产品管理>发布新产品</div>
                 <hr/>
-                <h1 style={{fontWeight:"bold",textAlign:"left"}}>发布新产品</h1>
+                <h1>发布新产品</h1>
                 <hr/>
             <Tabs activeKey={String(this.state.ActiveKey)}   onChange={this.callback}>
                 <TabPane tab="基本信息" key="1">
@@ -40,11 +39,11 @@ constructor(props) {
                     {/* <Link to="/Addproductbaseinfo" component={Addproductbaseinfo}>基本信息</Link>*/}
                 </TabPane>
                 <TabPane tab="产品定价" key="2">
-                    <Product_price toProduct_baseinfo={this.getnew_key} toProduct_description={this.getnew_key}></Product_price>
+                    <Product_price toProduct_baseinfo={this.getnew_key} toProduct_baseinfo={this.getnew_key}></Product_price>
                     {/*<Link to="/Product_price" component={Product_price}>基本信息</Link>*/}
                 </TabPane>
                 <TabPane tab="产品描述" key="3">
-                    <Product_description to_Product_price={this.getnew_key} to_UpperandLower={this.getnew_key}></Product_description>
+                    Content of Tab Pane 444433333
                 </TabPane> <TabPane tab="发现更多" key="4">
                 Content of Tab Pane 3
             </TabPane> <TabPane tab="扩展属性" key="5">
@@ -54,7 +53,7 @@ constructor(props) {
             </TabPane> <TabPane tab="搜索优化" key="7">
                 Content of Tab Pane 3
             </TabPane> <TabPane tab="上下架配置" key="8">
-                <UpperandLower toProduct_description={this.getnew_key} toproduct={this.toproduct}></UpperandLower>
+                <UpperandLower tosearch={this.getnew_key} toproduct={this.toproduct}></UpperandLower>
             </TabPane>
             </Tabs>
             </div>

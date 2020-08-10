@@ -69,11 +69,11 @@ constructor() {
                      </tr>
                  </tbody>
              </table>
-                <div style={{width:"50%",height:"150px",marginTop:"20px"}}>
-                    <Button type="primary" block onClick={this.toProduct_description} style={{width:"20%"}}>
+                <div className="btn">
+                    <Button type="primary" block onClick={this.Search} id="up">
                         上一步
                     </Button>
-                    <Button type="primary" block onClick={this.toProduct_list} style={{width:"20%",marginLeft:"50px"}}>
+                    <Button type="primary" block onClick={this.toProduct_list} className="next">
                         提交审批
                     </Button>
                 </div>
@@ -96,23 +96,25 @@ constructor() {
         })
 
     }
-    toProduct_description=()=>{
-        this.props.toProduct_description(3);
+    Search=()=>{
+        this.props.tosearch(7);
     }
      toProduct_list=()=>{
 
-        this.props.product.addProduct_time.onShelfTime=this.state.up_time
-        this.props.product.addProduct_time.offShelfTime=this.state.down_time
-        this.props.product.addProduct_time.shelfType=this.state.value
+        this.props.product.addProduct_time.up_time=this.state.up_time
+        this.props.product.addProduct_time.down_time=this.state.down_time
+        this.props.product.addProduct_time.type=this.state.value
         //this.props.push("/产品列表")
          this.props.product.addproductbaseinfo().then(()=>{
              this.props.product.addproduct_price()
-             this.props.product.addproduct_description()
              this.props.product.addproduct_time().then(()=>{
                  this.props.toproduct()
              })
 
          })
+
+
+
 
     }
 

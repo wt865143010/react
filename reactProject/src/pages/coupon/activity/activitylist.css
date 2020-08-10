@@ -1,0 +1,40 @@
+.activitylistbox{
+    padding: 5px 50px;
+    text-align: left;
+    height: 1000px;
+    background-color: rgb(242,242,242);
+}
+
+.actionbox{
+    background-color: white;
+    width: 1077px;
+    height: 135px;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.activitybox{
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 20px;
+    float: left;
+    color: white;
+}
+.activitycontent{
+    background-color: white;
+    margin-top: 25px;
+}
+.activitytype{
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid black;
+    float: left;
+    cursor: pointer;
+}

@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import Nav from "./Nav";
-import { Layout, Menu ,Breadcrumb } from 'antd';
-import {Route} from 'react-router-dom'
+import { Layout, Menu } from 'antd';
 import './home.css'
-import Product_details from '../product/pro_mange/Product_details'
-import addproduct_price_type from "../product/product_config/addproduct_price_type";
 const { Header, Content, Footer, Sider } = Layout;
 
 
@@ -35,12 +32,10 @@ class Home extends Component {
                     </Sider>
                     <Layout className="site-layout" style={{ marginLeft: 200 }}>
                         <Header className="site-layout-background" style={{ padding: 0 }} />
-                        <Content style={{ overflow: 'initial' }}>
-                            <div className="site-layout-background" style={{ textAlign: 'center' }}>
+                        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+                            <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
                                  {/*展示所有子节点*/}
                                 {this.props.children}
-                                <Route path={"/home/product/pro_mange/Product_details"} component={Product_details}/>
-                                <Route path={"/home/product/product_config/addproduct_price_type"} component={addproduct_price_type}/>
                             </div>
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
