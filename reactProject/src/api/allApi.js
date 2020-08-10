@@ -1,8 +1,8 @@
 import user from "./user";
-import system from "./system";
+import warehouse from "./warehouse";
 import product from "./product";
 export default {
     user,
-    system,
-    product
+    product,
+    warehouse
 }

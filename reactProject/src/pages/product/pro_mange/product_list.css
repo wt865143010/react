@@ -9,19 +9,16 @@
     display: flex;
     width: 700px;
     justify-content: space-between;
-    height: 40px;
-    line-height:40px;
 
 }
 
 #serach{
     display: flex;
-    width:1280px;
+    width:1300px;
     border: 1px solid #9b9b9b;
     text-align: center;
     flex-wrap: wrap;
     height: 150px;
-    margin-top: 20px;
 
 
 }

@@ -20,18 +20,11 @@
     border: 1px solid black;
     text-align: center;
 }
-.up{
+#up{
     width: 150px;
-    margin-left: -260px;
-   background-color: #999999
+    margin-left: 60px;
+    background-color: burlywood;
 }
-
 .btn{
     margin-top: 100px;
-    width: 100%;
-
 }
-table input{
-    border: 1px solid #7e7e7e;
-}
-

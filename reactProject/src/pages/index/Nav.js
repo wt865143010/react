@@ -4,7 +4,6 @@ import { Menu } from 'antd';
 import {inject,observer} from "mobx-react";
 import {Link} from "react-router-dom";
 import './nav.css'
-import {toJS} from "mobx";
 
 const { SubMenu } = Menu;
 
@@ -42,7 +41,6 @@ class Nav extends Component {
     }
 
     render() {
-        console.log(toJS(this.props.user.user))
         console.log(this.props.user.user.menuInfo[0].menuName)
         return (
             <div className='marginT'>
