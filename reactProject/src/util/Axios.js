@@ -1,7 +1,7 @@
 import Axios from "axios";
 // Axios.defaults.baseURL="http://172.16.2.89:8080";
 // Axios.defaults.baseURL="http://172.16.2.47:3210";
-Axios.defaults.baseURL="http://localhost:7777";
+Axios.defaults.baseURL="http://localhost:2555";
 
 //请求拦截=========
 Axios.interceptors.request.use(

@@ -1,0 +1,103 @@
+/*安全设置*/
+.tableS{
+    margin-top: 20px;
+    width: 100%;
+    font-size: 17px;
+}
+.tableS td{
+    border: 1px solid rgba(113, 113, 113, 0.15);
+
+}
+.tableS tr{
+    height: 70px;
+}
+.tableS td span{
+    color: red;
+}
+.input1{
+    width: 40px;
+    border: 1px solid dimgrey;
+}
+.input2{
+    width: 50px;
+    border: 1px solid dimgrey;
+}
+.input3{
+    width: 80px;
+    border: 1px solid dimgrey;
+}
+.input4{
+    width: 140px;
+    border: 1px solid dimgrey;
+}
+.input5{
+    width: 350px;
+    border: 1px solid dimgrey;
+}
+.inputyes{
+    width: 15px;
+    height: 15px;
+}
+.tableS tr td:first-child{
+    text-align: right;
+    width: 25%;
+}
+.tableS tr td:nth-child(2){
+    width: 30px;
+}
+.tableS tr td:last-child{
+    text-align: left;
+}
+#checkYes{
+   /*display: inline-block;*/
+    margin: 0;
+    padding-left: 30px;
+    display: none;
+}
+.numberQ{
+    color: rgba(128, 128, 128, 0.48);
+    margin-left: 20px;
+}
+.w50{
+    width: 50px;
+    display: inline-block;
+}
+.w10{
+    display: inline-block;
+    width: 15px;
+}
+.btn{
+    margin-top: 50px;
+    margin-right: 200px;
+    margin-bottom: 100px;
+}
+.upload-list-inline .ant-upload-list-item {
+    float: left;
+    width: 200px;
+    margin-right: 8px;
+}
+
+.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+    float: right;
+}
+.upload-list-inline .ant-upload-animate-enter {
+    animation-name: uploadAnimateInlineIn;
+}
+.upload-list-inline .ant-upload-animate-leave {
+    animation-name: uploadAnimateInlineOut;
+}
+.ant-upload-list-picture .ant-upload-list-item, .ant-upload-list-picture-card .ant-upload-list-item{
+    width: 100px;
+    height: 100px;
+}
+.ant-upload-list-item-card-actions .anticon {
+    color: red!important;
+}
+.ant-upload.ant-upload-select{
+    margin-top: 10px;
+}
+.ant-btn span{
+    color: rgba(0, 0, 0, 0.65)!important;
+}
+
+

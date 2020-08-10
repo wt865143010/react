@@ -1,0 +1,22 @@
+.tableEmail{
+    width: 50%;
+    margin: 10px auto;
+    font-size: 18px;
+
+}
+
+.tableEmail input{
+    border: 1px solid #333333;
+}
+.tableEmail td:first-child{
+    text-align: right;
+}
+.tableEmail td:last-child{
+    text-align: left;
+}
+.tableEmail .textE{
+    display: inline-block;
+    padding: 6px;
+    border: 1px solid #333333;
+    width: 200px;
+}

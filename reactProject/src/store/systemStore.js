@@ -9,6 +9,14 @@ export default class systemStore {
     @observable NewsMod=[];
     @observable NewsWay=[];
 
+
+    @observable UserList=[];
+    @observable role=[];
+    @observable token="";
+    @observable areaList=[];
+    @observable roleList=[];
+    @observable OperaData=[];
+
     @action getUserEva=()=>{
         return new Promise((resolve, reject) => {
             Axios.get(Api.system.getUserEva)
@@ -57,9 +65,9 @@ export default class systemStore {
                 })
         })
     }
-    @action searchMsg=(obj)=>{
+    @action searchMsg1=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.get(Api.system.searchMsg,{params:obj})
+            Axios.get(Api.system.searchMsg1,{params:obj})
                 .then(res=>{
                     this.leaveMsg=res.data.data.msg;
                     resolve('获取成功！')
@@ -143,6 +151,156 @@ export default class systemStore {
                 .then(res=>{
 
                     resolve('修改成功！')
+                })
+        })
+    }
+
+
+
+
+
+    /////////////////////////////////////////////////////账号列表//////////////////////////////////////////////
+////获取角色列表
+    @action getRole=()=>{
+        return new Promise((resolve, reject) =>{
+            Axios.get(Api.system.getRole)
+                .then(res=>{
+                    this.role=res.data;
+                    resolve('获取角色成功')
+                })
+        } )
+    };
+////点击修改用户状态
+    @action disableUser=(obj)=>{
+        return new Promise((resolve, reject) =>{
+            Axios.put(Api.system.disableUser,obj)
+                .then(res=>{
+                    this.UserList=res.data;
+                    resolve('获取角色成功')
+                })
+        } )
+    };
+/////初始化数据列表数据，点击条件查询
+    @action searchMsg=(search)=>{
+        return new Promise((resolve, reject) => {
+            Axios.get(Api.system.searchMsg,{params:search})
+                .then(resp=>{
+                    this.UserList=resp.data;
+                    resolve('查询成功')
+
+                })
+        })
+    };
+/////新增用户
+    @action saveSure=(newData)=>{
+        return new Promise((resolve, reject) => {
+            Axios.post(Api.system.saveSure,newData)
+                .then(resp=>{
+                    // console.log(resp.data);
+                    resolve('添加账号成功')
+                })
+        })
+    };
+/////修改账号列表
+    @action saveEdit=(Data)=>{
+        return new Promise((resolve, reject) => {
+            Axios.put(Api.system.saveEdit,Data)
+                .then(res=>{
+                    console.log(res.data);
+                    resolve('修改成功')
+                })
+        })
+    };
+
+/////////////////////////////////////////////////////大区管理/////////////////////////////////////////////
+
+    ////大区条件搜索
+    @action searchArea=(souSuoValue)=>{
+        return new Promise((resolve, reject) => {
+            Axios.get(Api.system.searchArea,{params:souSuoValue})
+                .then(res=>{
+                    this.areaList=res.data;
+                    resolve('查询到数据')
+                })
+        })
+    };
+    ////删除大区数据
+    @action deleteArea=(deleteV)=>{
+        return new Promise((resolve, reject) => {
+            Axios.delete(Api.system.deleteArea,{params:deleteV})
+                .then(res=>{
+                    resolve('删除成功')
+                })
+        })
+    };
+    ///编辑修改保存信息
+    @action editAreaMsg=(data)=>{
+        return new Promise((resolve, reject) => {
+            Axios.put(Api.system.editAreaMsg,data)
+                .then(res=>{
+                    resolve('修改成功')
+                })
+        })
+    };
+    ///新增保存信息
+    @action newAreaMsg=(dataNew)=>{
+        return new Promise((resolve, reject) => {
+            Axios.post(Api.system.newAreaMsg,dataNew)
+                .then(res=>{
+                    resolve('新增成功')
+                })
+        })
+    }
+//////////////////////////////////////////角色管理///////////////////////////////////////////////////////
+    ///角色查询，初始化大区列表
+    @action roleSearch=(roleS)=>{
+        return new Promise((resolve, reject) => {
+            Axios.get(Api.system.roleSearch,{params:roleS})
+                .then(res=>{
+                    this.roleList=res.data;
+                    resolve('查询到数据')
+                })
+
+        })
+    }
+
+    ///保存修改数据
+    @action roleXiuGai=(Data)=>{
+        return new Promise((resolve, reject) => {
+            Axios.put(Api.system.roleXiuGai,Data)
+                .then(res=>{
+                    resolve('修改成功')
+                })
+        })
+
+    };
+    ///新增角色数据
+    @action roleNewAdd=(newData)=>{
+        return new Promise((resolve, reject) => {
+            Axios.post(Api.system.roleNewAdd,newData)
+                .then(res=>{
+                    resolve('新增成功')
+                })
+        })
+    }
+    ////修改用户状态
+    @action disableUser1=(obj)=>{
+        return new Promise((resolve, reject) =>{
+            Axios.put(Api.system.disableUser1,obj)
+                .then(res=>{
+                    this.roleList=res.data;
+                    resolve('修改状态成功成功')
+                })
+        } )
+    };
+    ///////////////////////////////////操作日志//////////////////////////////////////////
+    ///数据查询，数据渲染
+    @action getOpera=(obj)=>{
+        return new Promise((resolve, reject) => {
+            Axios.get(Api.system.getOpera,{params:obj})
+                .then(res=>{
+                    this.OperaData=res.data;
+                    resolve('获取数据成功')
                 })
         })
     }

@@ -4,6 +4,10 @@ import Login from "./pages/login/Login";
 import Home from "./pages/index/Home";
 import {BrowserRouter as Router,Route,Redirect,Switch} from "react-router-dom";
 import PrivateRouter from "./component/PrivateRouter/PrivateRouter";
+
+import addAccount from "./pages/system/security_center/UserList/addAccount";
+import addAreaManage from "./pages/system/security_center/areaManage/addAreaManage";
+import addRole from "./pages/system/security_center/roleList/addRole";
 import Product_list from "./pages/product/pro_mange/Product_list";
 
 
@@ -50,6 +54,9 @@ function App() {
                             <Route path="/home/EditStore" component={EditStore} ></Route>
                             <Route path="/home/AddWareHouse" component={AddWareHouse} ></Route>
                             <Route path="/home/EditService" component={EditService} ></Route>
+                            <Route path='/home/addAccount' component={addAccount}></Route>
+                            <Route path='/home/addAreaManage' component={addAreaManage}></Route>
+                            <Route path='/home/addRole' component={addRole}></Route>
                     </Home>
                 }>
                 </Route>
