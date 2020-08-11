@@ -19,7 +19,9 @@ export default {
     changePayStatus:'/system/changePayStatus',
 
     //////////////////////////////////////////账号列表////////////////////////////////
-    getRole:'/system/getRole',
+    getRole:'NSChina/sysAccNumber/getAccNumberRole',
+
+    getAllRole:'NSChina/sysAccNumber/roleTree',
     //修改账户状态
     disableUser:'/system/disableUser',
     //条件查询
@@ -50,6 +52,7 @@ export default {
     disableUser1:'/system/disableUser',
     ////////////////////////////////////////操作日志//////////////////////////////////////////////
     ///查询/数据渲染
-    getOpera:'/system/getOpera'
+    getOpera:'/system/getOpera',
+
 
 };

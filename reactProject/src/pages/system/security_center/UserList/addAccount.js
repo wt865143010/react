@@ -25,11 +25,20 @@ class addAccount extends Component {
             })
         }
         //发请求
-        this.props.system.getRole()
+        console.log(query.item.id)
+        this.props.system.getRole({id:query.item.id})
             .then(data=>{
-                console.log(this.props.system.role)
+                console.log(this.props.system.myrole)
+                let role=[];
+                for (let i=0;i<this.props.system.role.length;i++){
+                    let obj={key:this.props.system.role[i].id,title:this.props.system.role[i].name}
+                    role.push(obj)
+                }
+                console.log(role)
                 this.setState({
-                    mockData:this.props.system.role
+                    mockData:role,
+                    targetKeys:this.props.system.myrole,
+
                 })
             })
 

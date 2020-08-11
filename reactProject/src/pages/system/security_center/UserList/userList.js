@@ -90,18 +90,18 @@ class userList extends Component {
                 },
             ],
             role:[
-                {
-                    name:'管理员'
-                },
-                {
-                    name:'经理'
-                },
-                {
-                    name:'销售'
-                },
-                {
-                    name:'客户经理'
-                }
+                // {
+                //     name:'管理员'
+                // },
+                // {
+                //     name:'经理'
+                // },
+                // {
+                //     name:'销售'
+                // },
+                // {
+                //     name:'客户经理'
+                // }
             ],
             pageNum:'',
             account:'',
@@ -112,8 +112,10 @@ class userList extends Component {
     ////账户列表数据渲染
     componentWillMount() {
         let search={
-            account:'',
-            userName:'',
+            number:'',
+            name:'',
+            roleId:'',
+            status:'',
             pageNumber:1,
             pageSize:10
         };
@@ -123,7 +125,10 @@ class userList extends Component {
                     getUseList:this.props.system.UserList
                 })
             })
-
+        this.props.system.getAllRole()
+            .then(data=>{
+                this.state.role=this.props.system.role;
+            })
     }
 
     ///点击搜索功能
@@ -213,9 +218,10 @@ class userList extends Component {
             })
     }
     render(){
+        console.log(this.state.role)
         let arr=this.state.role.map((item,i)=>{
             return (
-                <option value={item.name} key={i}>{item.name}</option>
+                <option value={item.id} key={i}>{item.name}</option>
             )
         });
         return (

@@ -12,6 +12,7 @@ export default class systemStore {
 
     @observable UserList=[];
     @observable role=[];
+    @observable myrole=[];
     @observable token="";
     @observable areaList=[];
     @observable roleList=[];
@@ -161,15 +162,29 @@ export default class systemStore {
 
     /////////////////////////////////////////////////////账号列表//////////////////////////////////////////////
 ////获取角色列表
-    @action getRole=()=>{
+    @action getRole=(obj)=>{
         return new Promise((resolve, reject) =>{
-            Axios.get(Api.system.getRole)
+            Axios.post(Api.system.getRole,obj)
                 .then(res=>{
-                    this.role=res.data;
+                    console.log(res.data.data)
+                    this.myrole=res.data.data;
                     resolve('获取角色成功')
                 })
         } )
     };
+
+    @action getAllRole=()=>{
+        return new Promise((resolve, reject) =>{
+            Axios.get(Api.system.getAllRole)
+                .then(res=>{
+                    console.log(res.data.data)
+                    this.role=res.data.data;
+                    resolve('获取角色成功')
+                })
+        } )
+    }
+
+
 ////点击修改用户状态
     @action disableUser=(obj)=>{
         return new Promise((resolve, reject) =>{
