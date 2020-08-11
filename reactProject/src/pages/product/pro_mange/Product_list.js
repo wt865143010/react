@@ -3,9 +3,9 @@ import './product_list.css'
 import { Input, Select,Button} from 'antd';
 import { DatePicker, Space } from 'antd';
 import {inject,observer} from "mobx-react";
-import { Pagination } from 'antd';
-import { Table } from 'antd';
-import {toJS} from "mobx";
+
+import { Table} from 'antd';
+
 
 function onChange(pageNumber) {
     console.log('Page: ', pageNumber);
@@ -26,10 +26,10 @@ const { Option } = Select;
     constructor() {
         super();
         this.state={//搜索框的值
-            product_num:"",//产品编号
-            product_name:"",//产品名称
-            product_type:"",//产品属性
-            product_label:"",//产品标签
+            productNumber:"",//产品编号
+            productName:"",//产品名称
+            attributesName:"",//产品属性
+            labelName:"",//产品标签
             start_time:"",
             end_time:'',
         }
@@ -83,14 +83,14 @@ const { Option } = Select;
                        return (
                             <Space size="middle">
                                 <a  onClick={this.approval.bind(this,record.id)}>批准</a>
-                                <a  onClick={this.recall}>撤回</a>
+                                <a  onClick={this.recall.bind(this,record.id)}>撤回</a>
                             </Space>
                         )
                     }else {
                         return (
                             <Space size="middle">
-                                <a >编辑</a>
-                                <a >下架</a>
+                                <a onClick={this.edit.bind(this,record.id)}>编辑</a>
+                                <a onClick={this.undercarriage.bind(this,record.id)}>下架</a>
                             </Space>
                         )
                     }
@@ -100,10 +100,10 @@ const { Option } = Select;
 
         return (
             <div className="product_list">
-                <div>产品管理>产品列表</div>
+                <div style={{textAlign:"left"}}>产品管理>产品列表</div>
                 <hr/>
                 <div className={"title"}>
-                    <h2>产品列表</h2>
+                    <h2 style={{fontWeight:"bold",textAlign:"left"}}>产品列表</h2>
                     <span>平台所有的产品，您可以对产品进行搜索，也能对产品进行编辑、上架、下架等操作</span>
                 </div>
                 <hr/>
@@ -126,7 +126,7 @@ const { Option } = Select;
                     </Input.Group>
                     <Input.Group compact>
                         <Input style={{ width: '8%' }} defaultValue="产品标签:"bordered={false} />
-                        <Select  className="select-drop-down"  onChange={val=>this.getselectvalue('product_label',val)}>
+                        <Select  className="select-drop-down"  onChange={val=>this.getselectvalue('labelName',val)}>
                             <Option value="Zhejiang">Zhejiang</Option>
                             <Option value="Jiangsu">Jiangsu</Option>
                         </Select>
@@ -134,7 +134,7 @@ const { Option } = Select;
                     </Input.Group>
                     <Input.Group compact>
                         <Input style={{ width: '8%' }} defaultValue="产品属性:"bordered={false} />
-                        <Select  className="select-drop-down"  onChange={val=>this.getselectvalue('product_type',val)}>
+                        <Select  className="select-drop-down"  onChange={val=>this.getselectvalue('attributesName',val)}>
                             <Option value="Zhejiang">Zhejiang</Option>
                             <Option value="Jiangsu">Jiangsu</Option>
                         </Select>
@@ -150,12 +150,12 @@ const { Option } = Select;
                     </Input.Group>
                     <Input.Group compact>
                         <Input style={{ width: '8%' }} defaultValue="产品编号:"bordered={false} />
-                        <Input style={{ width: '5%' }} onChange={val=>this.getvalue('product_num',val)} />
+                        <Input style={{ width: '5%' }} onChange={val=>this.getvalue('productNumber',val)} />
                     </Input.Group>
 
                     <Input.Group compact>
                         <Input style={{ width: '8%' }} defaultValue="产品名称:"bordered={false} />
-                        <Input style={{ width: '5%' }} onChange={val=>this.getvalue('product_name',val)} />
+                        <Input style={{ width: '5%' }} onChange={val=>this.getvalue('productName',val)} />
 
                     </Input.Group>
                     <Input.Group compact>
@@ -175,8 +175,8 @@ const { Option } = Select;
 
 
                 <div className={"productlist_btn"}>
-                    <Button type="primary" onClick={this.totest}>下架</Button>
-                    <Button type="primary">发布新产品</Button>
+                    {/*<Button type="primary" onClick={this.totest}>下架</Button>*/}
+                    <Button type="primary" onClick={this.addProduct}>发布新产品</Button>
                     <Button type="primary">发布组合产品</Button>
                 </div>
 
@@ -198,42 +198,52 @@ const { Option } = Select;
             </div>
         )
     }
-    gettime=(date)=>{
+    gettime=(date)=>{//获取开始时间到结束时间
         this.setState({
             start_time:date[0]._d.toLocaleString(),
             end_time:date[1]._d.toLocaleString()
         })
 
     }
-    getselectvalue=(key,val)=>{
+    getselectvalue=(key,val)=>{//获取选项框的搜索内容
         this.setState({
             [key]:val
         })
     }
-    getvalue=(key,val)=>{
+    getvalue=(key,val)=>{//获取输入框的内容
        this.setState({
            [key]:val.target.value
        })
     }
-    serach=()=>{
+    serach=()=>{//点击搜索去搜索
         this.props.product.product_serach=this.state;
         this.props.product.getserach();
         console.log(this.props.product.product_serach)
     }
 
-    showProduct=(key)=>{
+    showProduct=(key)=>{//点击按钮搜索对应的产品
 
         this.props.product.getproduct_byli(key);
     }
-    totest=()=>{
 
-        this.props.history.push("/Test")
-    }
-    approval=(product_id)=>{
+    approval=(product_id)=>{//批准上架
         let aa=document.getElementsByClassName("ant-space-item")
         console.log(aa)
         this.props.product.updataproduct_type(product_id)
 
+    }
+    recall=(product_id)=>{//撤回
+
+    }
+    edit=(product_id)=>{//编辑产品
+        console.log(this.props)
+        this.props.history.push({pathname:"/home/product/pro_mange/Product_details",product_id:product_id})
+    }
+    undercarriage=(product_id)=>{//下架产品
+
+    }
+    addProduct=()=>{//发布新产品
+        this.props.history.push({pathname:"/home/product/pro_mange/Productadd"})
     }
 
 }

@@ -16,31 +16,31 @@ class PrivateRouter extends Component {
     }
     bindRoute(list){
         let routelist=list.map(item=>{
-            if (item.menuChilds.length===0){
-                return <Route path={item.pathname}
-                              key={item.menuId}
+            if (item.moduleChildren===null){
+                return <Route path={item.pathName}
+                              key={item.id}
                               component={Loadable(()=>
-                                  import(`../../pages/${item.componentPath}`)
+                                  import(`../../pages/${item.url}`)
                               )}></Route>
             }else {
-                return <Route path={item.pathname}
-                              key={item.menuId}
+                return <Route path={item.pathName}
+                              key={item.id}
                               render={()=>{
-                                  let ComponentName=Loadable(()=>import(`../../pages/${item.componentPath}`))
+                                  let ComponentName=Loadable(()=>import(`../../pages/${item.url}`))
                                   return <ComponentName {...this.props}>
-                                      {this.bindRoute(item.menuChilds)}
+                                      {this.bindRoute(item.moduleChildren)}
                                   </ComponentName>
                                       }
                               }>
-                    {this.bindRoute(item.menuChilds)}
+                    {this.bindRoute(item.moduleChildren)}
                 </Route>
             }
         })
         return routelist
     }
     UNSAFE_componentWillMount() {
-
-        let routelist=this.bindRoute(this.props.user.user.menuInfo)
+        console.log(this.props.user.user)
+        let routelist=this.bindRoute(this.props.user.user)
         this.setState({
             routerList:routelist
         })

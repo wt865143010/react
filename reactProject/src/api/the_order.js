@@ -1,4 +1,5 @@
-export default {myOrder:"/test/order",  //订单列表
+export default {
+    myOrder:"/test/order",  //订单列表
     myInvoice:"/test/Invoice",          //发货单列表
     myReturn_order:"/test/r_order",      //退货单列表
     myBusiness:"/test/business",         //业务类型

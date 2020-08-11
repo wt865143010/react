@@ -11,29 +11,30 @@ class Addproductbaseinfo extends Component {
         constructor(props) {
             super(props);
           this.state={
-              productnum:"",
-              productclass:"Pharchen",
-                cha_name:"",
-              english_name:"",
-              unit_measurement:'只',
-              product_length:'',
-              product_width:"",
-              product_height:"",
-              outer_packing:"",
-              product_weight:"",
-              is_selling:"是",
-              selling_data:"",
-              tax_rate:"",
-              alert_inventory:"",
-              is_present:"是",
-              is_freight:"是",
-              is_presale:"是",
-              gategory_display:"是",
-              is_mixOrder:"是",
-              is_shipment:"是",
-              sell_code:"是",
-              return_code:"是",
-              product_limit:"是",
+              productNumber:"",
+              productClassification:"Pharchen",
+              productName:"",
+              productEnglishname:"",
+              productCountUnit:'只',
+              productPackageSizeLong:'',
+              productPackageSizeWidth:"",
+              productPackageSizeHigh:"",
+              productPackageMaterial:"",
+              productWeight:"",
+              productDirectSales:"1",
+              directSalesTime:"",
+              donate:"1",
+              taxRate:"",
+              InventoryAlert:"",
+
+              shipping:"1",
+              selfMention:"",
+              preSale:"1",
+              categoryDisplay:"1",
+              allowOrder:"1",
+              isShipment:"1",
+              shipmentScanCode:"1",
+              returnScanCode:"1",
           }
         }
 
@@ -47,12 +48,12 @@ class Addproductbaseinfo extends Component {
                     <tbody className="Addproductbaseinfo">
                     <tr>
                         <td>产品编号</td>
-                        <td><input type="text"  onChange={val=>this.change_productnum('productnum',val)} style={{width:150}}/></td>
+                        <td><input type="text"  onChange={val=>this.change_productnum('productNumber',val)}/></td>
                     </tr>
                     <tr>
-                        <td>产品分类</td>
+                        <td >产品分类</td>
                         <td>
-                            <select name="" id="productclass" defaultValue={this.state.productclass} onChange={val=>this.chang_productclass('productclass',val)}>
+                            <select name="" id="productClassification" defaultValue={this.state.productclass} onChange={val=>this.chang_productclass('productClassification',val)}>
                                 <option value="">Pharchen</option>
                                 <option value="">Nuskin</option>
                                 <option value="">hersherd</option>
@@ -61,14 +62,14 @@ class Addproductbaseinfo extends Component {
                     </tr>
                     <tr>
                         <td>产品中文名称</td>
-                        <td><input type="text"  onChange={val=>this.change_productnum('cha_name',val)}/>长度限定在75个字符以内</td>
+                        <td><input type="text"  onChange={val=>this.change_productnum('productName',val)}/>长度限定在75个字符以内</td>
                     </tr><tr>
                         <td>产品英文名称</td>
-                        <td><input type="text" onChange={val=>this.change_productnum('english_name',val)}/>长度限定在50个字符以内</td>
+                        <td><input type="text" onChange={val=>this.change_productnum('productEnglishname',val)}/>长度限定在50个字符以内</td>
                     </tr><tr>
                         <td>计量单位</td>
                         <td>
-                            <select name="" id="unit_measurement" defaultValue={this.state.unit_measurement} onChange={val=>this.chang_productclass('unit_measurement',val)}>
+                            <select name="" id="productCountUnit" defaultValue={this.state.unit_measurement} onChange={val=>this.chang_productclass('productCountUnit',val)}>
                                 <option value="">只</option>
                                 <option value="">袋</option>
                                 <option value="">件</option>
@@ -79,58 +80,58 @@ class Addproductbaseinfo extends Component {
                         </td>
                     </tr><tr>
                         <td>外包装尺寸</td>
-                        <td>长度：<input type="text"  onChange={val=>this.change_productnum('product_length',val)}/>宽度：<input type="text" onChange={val=>this.change_productnum('product_width',val)}/>高度：<input type="text"onChange={val=>this.change_productnum('product_height',val)}/></td>
+                        <td>长度：<input type="text"  onChange={val=>this.change_productnum('productPackageSizeLong',val)}/>宽度：<input type="text" onChange={val=>this.change_productnum('productPackageSizeWidth',val)}/>高度：<input type="text"onChange={val=>this.change_productnum('productPackageSizeHigh',val)}/></td>
                     </tr><tr>
                         <td>外包装材料</td>
-                        <td><input type="text"  onChange={val=>this.change_productnum('outer_packing',val)}/></td>
+                        <td><input type="text"  onChange={val=>this.change_productnum('productPackageMaterial',val)}/></td>
                     </tr><tr>
                         <td>产品重量</td>
-                        <td><input type="text" onChange={val=>this.change_productnum('product_weight',val)}/></td>
+                        <td><input type="text" onChange={val=>this.change_productnum('productWeight',val)}/></td>
                     </tr><tr>
                         <td>是否直销</td>
                         <td>
-                            <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'is_selling',val)}>是</Checkbox>
+                            <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'productDirectSales',val)}>是</Checkbox>
                         </td>
                     </tr><tr>
                         <td>直销核准日期</td>
-                        <td><DatePicker id="selling_data" onChange={this.onChangedata} /></td>
+                        <td><DatePicker id="directSalesTime" onChange={this.onChangedata} /></td>
                     </tr><tr>
                         <td>是否捐赠</td>
                         <td>
-                            <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'is_present',val)}>是</Checkbox>
+                            <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'donate',val)}>是</Checkbox>
                           </td>
                     </tr><tr>
                         <td>税率(100%)</td>
-                        <td><input type="text"  onChange={val=>this.change_productnum('tax_rate',val)}/>%</td>
+                        <td><input type="text"  onChange={val=>this.change_productnum('taxRate',val)}/>%</td>
                     </tr>
                     <tr>
                         <td>警戒库存</td>
-                        <td><input type="text"  onChange={val=>this.change_productnum('alert_inventory',val)}/></td>
-                    </tr><tr>
+                        <td><input type="text"  onChange={val=>this.change_productnum('InventoryAlert',val)}/></td>
+                    </tr>
+                    <tr>
                         <td>是否需要运费</td>
-                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'is_freight',val)}>是</Checkbox></td>
+                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'shipping',val)}>是</Checkbox></td>
                     </tr><tr>
-                       {/* <td>允许自提</td>
-                        <td><input type="radio" name={"4"}checked  defaultValue={"是"} onChange={val=>this.change_productnum('is_presale',val)}/>是
-                            <input type="radio" name={"4"} defaultValue={"否"} onChange={val=>this.change_productnum('is_presale',val)}/>否</td>*/}
+                        <td>是否自提</td>
+                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'selfMention',val)}>是</Checkbox></td>
                     </tr><tr>
                         <td>是否预售</td>
-                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'is_presale',val)}>是</Checkbox></td>
+                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'preSale',val)}>是</Checkbox></td>
                     </tr><tr>
                         <td>是否类目显示</td>
-                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'gategory_display',val)}>是</Checkbox></td>
+                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'categoryDisplay',val)}>是</Checkbox></td>
                     </tr><tr>
                         <td>允许混单</td>
-                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'is_mixOrder',val)}>是</Checkbox></td>
+                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'allowOrder',val)}>是</Checkbox></td>
                     </tr><tr>
                         <td>是否出货</td>
-                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'is_shipment',val)}>是</Checkbox></td>
+                        <td><Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'isShipment',val)}>是</Checkbox></td>
                     </tr><tr>
                         <td>出货扫码</td>
-                        <td> <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'sell_code',val)}>是</Checkbox></td>
+                        <td> <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'shipmentScanCode',val)}>是</Checkbox></td>
                     </tr><tr>
                         <td>退货扫码</td>
-                        <td> <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'return_code',val)} >是</Checkbox></td>
+                        <td> <Checkbox defaultChecked onChange={(e,val)=>this.onChange(e,'returnScanCode',val)} >是</Checkbox></td>
                     </tr>
                     </tbody>
                 </table>
@@ -138,10 +139,7 @@ class Addproductbaseinfo extends Component {
                    <span>产品配置</span>
                    <span>对于可预览控制，不显示在类目中条件下才有效。对限购用户的控制</span>
                </p>
-              {/*  <div className="product_res">
-                    <p>产品限制</p>
-                    <div><input type="checkbox"/>配置可预览的用户<input type="checkbox"/>配置限购的用户</div>
-                </div>*/}
+
                 <div>
                     <Button type="primary" block onClick={this.toProduct_price} className="next">
                        下一步
@@ -157,14 +155,14 @@ class Addproductbaseinfo extends Component {
         if(e.target.checked==true){
             console.log(11111)
             this.setState({
-                [key]:"是"
+                [key]:"1"
 
             })
         }
        if(e.target.checked==false) {
             console.log(2222)
             this.setState({
-                [key]:"否"
+                [key]:"0"
             })
         }
 
@@ -175,7 +173,7 @@ class Addproductbaseinfo extends Component {
     onChangedata=(date, dateString)=> {
 
          this.setState({
-             selling_data:dateString
+             directSalesTime:dateString
          })
 
 
@@ -201,7 +199,7 @@ class Addproductbaseinfo extends Component {
        console.log(this.state)
         this.props.getnew_key("2")
         this.props.product.addProductbaseinfo=this.state
-       /* this.props.product.addproductbaseinfo()*/
+      /*  this.props.product.addproductbaseinfo()*/
 
     }
 }

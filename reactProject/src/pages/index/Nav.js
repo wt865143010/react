@@ -4,6 +4,7 @@ import { Menu } from 'antd';
 import {inject,observer} from "mobx-react";
 import {Link} from "react-router-dom";
 import './nav.css'
+import {toJS} from "mobx";
 
 const { SubMenu } = Menu;
 
@@ -20,13 +21,13 @@ class Nav extends Component {
     };
     bindMenu(list){
         let menuList= list.map(item=>{
-            if (item.menuChilds.length===0){
-                return  <Menu.Item key={item.menuId}>
-                    <Link to={item.pathname}>{item.menuName}</Link>
+            if (item.moduleChildren===null){
+                return  <Menu.Item key={item.id}>
+                    <Link to={item.pathName}>{item.moduleName}</Link>
                 </Menu.Item>
             }else {
-                return <SubMenu key={item.menuId} title={item.menuName}>
-                    {this.bindMenu(item.menuChilds)}
+                return <SubMenu key={item.id} title={item.moduleName}>
+                    {this.bindMenu(item.moduleChildren)}
                 </SubMenu>
             }
 
@@ -34,14 +35,14 @@ class Nav extends Component {
         return menuList;
     };
     UNSAFE_componentWillMount() {
-        let menulist=this.bindMenu(this.props.user.user.menuInfo)
+        console.log(typeof this.props.user.user)
+        let menulist=this.bindMenu(this.props.user.user)
         this.setState({
             menuList:menulist
         })
     }
 
     render() {
-        console.log(this.props.user.user.menuInfo[0].menuName)
         return (
             <div className='marginT'>
                 <Menu
