@@ -23,7 +23,7 @@ export default {
     //修改账户状态
     disableUser:'/system/disableUser',
     //条件查询
-    searchMsg:'/system/searchMsg',
+    searchMsg:'NSChina/sysAccNumber/selectAccNumber',
     //新增账号列表
     saveSure:'/system/saveSure',
     //保存账号信息

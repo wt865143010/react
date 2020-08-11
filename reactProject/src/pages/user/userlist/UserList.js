@@ -382,7 +382,7 @@ class UserList extends Component {
                     <span>用户列表</span>
                 </div>
                 <strong className='title'>用户列表</strong>
-                <div className='search'>
+                <div className='userSearch'>
                     <div>
                         卡号：<input type="text" id='userNo'/>
                     </div>
@@ -403,7 +403,8 @@ class UserList extends Component {
                         <input type="radio" name='sex' className='userSex' value='女'/>女
                     </div>
                     <div>
-                        用户状态： <input type="radio" className='userSta' value='默认'/>默认
+                        用户状态： 
+                        <input type="radio" className='userSta' value='默认'/>默认
                         <input type="radio" className='userSta' value='活动'/>活动
                         <input type="radio" className='userSta' value='不活动'/>不活动
                         <input type="radio" className='userSta' value='终止'/>终止

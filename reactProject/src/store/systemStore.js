@@ -182,9 +182,26 @@ export default class systemStore {
     };
 /////初始化数据列表数据，点击条件查询
     @action searchMsg=(search)=>{
+        let newsearch=JSON.stringify(search)
         return new Promise((resolve, reject) => {
-            Axios.get(Api.system.searchMsg,{params:search})
+            // Axios.get(Api.system.searchMsg,{
+            //     params:newsearch,
+            //     headers:{
+            //         'token':this.token,
+            //         'Content-Type': 'application/json'
+            //     }
+            // })
+            Axios({
+                method:'get',
+                data:newsearch,
+                header:{
+                    'Authorization':this.token,
+                    'Content-Type': 'application/json',
+                    
+                }
+            })
                 .then(resp=>{
+                    console.log(resp.data)
                     this.UserList=resp.data;
                     resolve('查询成功')
 

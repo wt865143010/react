@@ -8,11 +8,11 @@
 .title{
     font-size: 25px;
 }
-.search{
+.userSearch{
     display: flex;
     margin-top: 30px;
 }
-.search>div{
+.userSearch>div{
     margin-left: 20px;
 }
 .searchB{
