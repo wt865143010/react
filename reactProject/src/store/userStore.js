@@ -505,6 +505,7 @@ export default class userStore {
                     console.log(res.data)
                         // this.user=res.data.data;
                         this.token=res.data.token
+                    sessionStorage.setItem('token',res.data.token);
                         resolve(res);
                         reject("登录失败")
 

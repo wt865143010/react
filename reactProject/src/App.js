@@ -18,6 +18,11 @@ import AddStore from "./pages/Warehouse/storeList/AddStore";
 import EditStore from "./pages/Warehouse/storeList/EditStore";
 import AddWareHouse from "./pages/Warehouse/warehouseList/AddWareHouse";
 import EditWareHouse from "./pages/Warehouse/warehouseList/EditWareHouse";
+
+
+
+import UserNews from "./pages/user/userlist/UserNews";
+import CooperativePartner from "./pages/user/other/CooperativePartner";
 function App() {
   return (
       <Router>
@@ -37,6 +42,10 @@ function App() {
                             <Route path='/home/addAccount' component={addAccount}></Route>
                             <Route path='/home/addAreaManage' component={addAreaManage}></Route>
                             <Route path='/home/addRole' component={addRole}></Route>
+
+
+                            <Route path='/home/usernews' component={UserNews}></Route>
+                            <Route path='/home/cooperative' component={CooperativePartner}></Route>
                     </Home>
                 }>
                 </Route>

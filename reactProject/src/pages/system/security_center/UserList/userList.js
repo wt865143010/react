@@ -29,25 +29,25 @@ class userList extends Component {
                 },
                 {
                     title: '名称',
-                    dataIndex: 'name',
+                    dataIndex: 'username',
                     key:'id'
                 },
                 {
                     title: '所属角色',
-                    dataIndex: 'part',
+                    dataIndex: 'roleName',
                     key:'id'
                 },
                 {
                     title: '创建时间',
-                    dataIndex: 'time',
+                    dataIndex: 'createTime',
                     key:'id'
                 },
                 {
                     title: '状态',
-                    dataIndex: 'statue',
+                    dataIndex: 'status',
                     key:'id',
-                    render:(statue)=>{
-                        if (statue===0){
+                    render:(status)=>{
+                        if (status===0){
                             return (
                                 <Space>
                                     <div>禁用</div>
@@ -68,7 +68,7 @@ class userList extends Component {
                     title: '操作',
                     key:'action',
                     render: (item) => {
-                        if (item.statue===0){
+                        if (item.status===0){
                             return (
                                 <Space>
                                     <Link to={{pathname:'/home/addAccount',query:{item:item}}} style={{ marginRight: 16 }}>编辑</Link>
@@ -114,7 +114,7 @@ class userList extends Component {
         let search={
             account:'',
             userName:'',
-            pageNum:1,
+            pageNumber:1,
             pageSize:10
         };
         this.props.system.searchMsg(search)
@@ -230,10 +230,12 @@ class userList extends Component {
                         <div >
                             所属角色：
                             <select name="" id="">
+                                <option value="">所有角色</option>
                                 {arr}
                             </select>
                             <span className='w50'></span>
                             状态： <select name="" id="">
+                            <option value="">所有</option>
                             <option value="1">启用</option>
                             <option value="0">禁用</option>
                         </select>
