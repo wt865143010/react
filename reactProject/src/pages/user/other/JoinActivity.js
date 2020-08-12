@@ -14,32 +14,53 @@ class JoinActivity extends Component {
             columns:[
                 {
                     title: '活动编号',
-                    dataIndex: 'act_no',
+                    dataIndex: 'activityNum',
                     key: 'id',
                 },
                 {
                     title: '活动类型',
-                    dataIndex: 'act_type',
+                    dataIndex: 'activityType',
                     key: 'id',
+                    render:(activityType)=>{
+                        if (activityType==0){
+                            return (
+                                <Space>
+                                    <div>特价促销</div>
+                                </Space>
+                            )
+                        }else if (activityType==1){
+                            return (
+                                <Space>
+                                    <div>满额促销</div>
+                                </Space>
+                            )
+                        }else if (activityType==2){
+                            return (
+                                <Space>
+                                    <div>满量促销</div>
+                                </Space>
+                            )
+                        }
+                    }
                 },
                 {
                     title: '活动名称',
-                    dataIndex: 'act_name',
+                    dataIndex: 'activityName',
                     key: 'id',
                 },
                 {
                     title: '参与时间',
-                    dataIndex: 'join_time',
+                    dataIndex: 'joinTime',
                     key: 'id',
                 },
                 {
                     title: '参与订单',
-                    dataIndex: 'order_no',
+                    dataIndex: 'oddNumber',
                     key: 'id',
-                    render:(order_no)=>{
+                    render:(oddNumber)=>{
                             return (
                                 <Space size="middle">
-                                    <Link to=''>{order_no}</Link>
+                                    <Link to=''>{oddNumber}</Link>
                                 </Space>
                             )
                     }
@@ -50,15 +71,18 @@ class JoinActivity extends Component {
             act_type:'',
             act_no:'',
             act_name:'',
+            startTime:'',
+            endTime:'',
         }
     }
     componentWillMount() {
         let obj={
-            act_type:'',
-            act_no:'',
-            act_name:'',
-            joinTime:'',
-            user_cartId:this.props.location.query.user_cartId
+            activityType:'',
+            activityNum:'',
+            activityName:'',
+            startTime:'',
+            endTime:'',
+            cardNumber:this.props.location.query.user_cartId
         }
         this.props.user.searchAct(obj)
             .then(data=>{
@@ -68,18 +92,21 @@ class JoinActivity extends Component {
             })
     }
     searchAct=()=>{
+
         this.setState({
             act_type:this.act_type.value,
             act_no:this.act_no.value,
             act_name:this.act_name.value,
         })
         let obj={
-            act_type:this.state.act_type,
-            act_no:this.state.act_no,
-            act_name:this.state.act_name,
-            joinTime:this.state.joinTime,
-            user_cartId:this.props.location.query.user_cartId
+            activityType:this.act_type.value,
+            activityNum:this.act_no.value,
+            activityName:this.act_name.value,
+            startTime:this.state.startTime,
+            endTime:this.state.endTime,
+            cardNumber:this.props.location.query.user_cartId
         }
+        console.log(obj)
         this.props.user.searchAct(obj)
             .then(data=>{
                 this.setState({
@@ -88,24 +115,23 @@ class JoinActivity extends Component {
             })
     }
     getTime=(data)=>{
-        console.log(data[0]._d.toLocaleString())
-        console.log(data[1]._d.toLocaleString())
-        let date={
-            start:data[0]._d.toLocaleString(),
-            end:data[1]._d.toLocaleString()
-        }
         this.setState({
-            joinTime:date
+            startTime:data[0]._d.toLocaleString(),
+            endTime:data[1]._d.toLocaleString()
         })
     }
 
     reset=()=>{
+        this.act_type.value='';
+        this.act_no.value='';
+        this.act_name.value='';
         let obj={
-            act_type:'',
-            act_no:'',
-            act_name:'',
-            joinTime:'',
-            user_cartId:this.props.location.query.user_cartId
+            activityType:'',
+            activityNum:'',
+            activityName:'',
+            startTime:'',
+            endTime:'',
+            cardNumber:this.props.location.query.user_cartId
         }
         this.props.user.searchAct(obj)
             .then(data=>{
@@ -131,10 +157,10 @@ class JoinActivity extends Component {
                         <div className='topBox'>
                             活动类型：
                             <select name="" id="" ref={act_type=>this.act_type=act_type}>
-                                <option value="所有">所有</option>
-                                <option value="特价促销">特价促销</option>
-                                <option value="满额促销">满额促销</option>
-                                <option value="满量促销">满量促销</option>
+                                <option value="">所有</option>
+                                <option value="0">特价促销</option>
+                                <option value="1">满额促销</option>
+                                <option value="2">满量促销</option>
                             </select>
                         </div>
                         <div className='topBox'>
@@ -156,7 +182,7 @@ class JoinActivity extends Component {
                         <input type="button" value='导出数据'/>
                     </div>
                     <div>
-                        <Table pagination={false} columns={this.state.columns} dataSource={this.state.activity} />
+                        <Table pagination={{defaultCurrent:1,defaultPageSize:5}} columns={this.state.columns} dataSource={this.state.activity} />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {inject,observer} from "mobx-react";
-import {Table,Collapse } from "antd";
+import {Table,Collapse,Space } from "antd";
 import {Link} from "react-router-dom";
 import './userNews.css'
 const { Panel } = Collapse;
@@ -20,28 +20,43 @@ class UserNews extends Component {
                 },
                 {
                     title: '关联账号',
-                    dataIndex: 'account',
+                    dataIndex: 'phoneNumber',
                     key: 'id',
                 },
                 {
                     title: '用户名',
-                    dataIndex: 'userName',
+                    dataIndex: 'cooName',
                     key: 'id',
                 },
                 {
                     title: '账号关系',
-                    dataIndex: 'account_rea',
+                    dataIndex: 'cooType',
                     key: 'id',
                 },
                 {
                     title: '身份证号',
-                    dataIndex: 'cart_id',
+                    dataIndex: 'cooIdNumber',
                     key: 'id',
                 },
                 {
                     title: '账号类型',
-                    dataIndex: 'type',
+                    dataIndex: 'cooAccountType',
                     key: 'id',
+                    render:(cooAccountType)=>{
+                        if (cooAccountType==0){
+                            return (
+                                <Space>
+                                    <div>主</div>
+                                </Space>
+                            )
+                        }else {
+                            return (
+                                <Space>
+                                    <div>副</div>
+                                </Space>
+                            )
+                        }
+                    }
                 }
             ],
             columns1:[
@@ -52,17 +67,17 @@ class UserNews extends Component {
                 },
                 {
                     title: '联络方式',
-                    dataIndex: 'type',
+                    dataIndex: 'Ii_type',
                     key: 'id',
                 },
                 {
                     title: '号码',
-                    dataIndex: 'tel',
+                    dataIndex: 'Ii_number',
                     key: 'id',
                 },
                 {
                     title: '联络人姓名',
-                    dataIndex: 'name',
+                    dataIndex: 'Ii_name',
                     key: 'id',
                 },
                 {
@@ -79,27 +94,27 @@ class UserNews extends Component {
                 },
                 {
                     title: '详情地址',
-                    dataIndex: 'address',
+                    dataIndex: 'addDetails',
                     key: 'id',
                 },
                 {
                     title: '邮编',
-                    dataIndex: 'email',
+                    dataIndex: 'postCode',
                     key: 'id',
                 },
                 {
                     title: '地址类型',
-                    dataIndex: 'type',
+                    dataIndex: 'addType',
                     key: 'id',
                 },
                 {
                     title: '收货人',
-                    dataIndex: 'name',
+                    dataIndex: 'userName',
                     key: 'id',
                 },
                 {
                     title: '收货人手机号码',
-                    dataIndex: 'phone',
+                    dataIndex: 'phoneNumber',
                     key: 'id',
                 },
                 {
@@ -135,25 +150,23 @@ class UserNews extends Component {
     }
     componentWillMount() {
         let user_cartId=this.props.location.query.user_cartId;
-        let userNews=this.props.user.userlist.filter(item=>{
-            return item.user_cartId===user_cartId
-        })
-        this.setState({
-            usernews:userNews[0]
-        })
-        this.props.user.getrelation({user_cartId:user_cartId})
+        let obj={cardNumber:user_cartId}
+        this.props.user.getUserInfo(obj)
             .then(data=>{
+                console.log(this.props.user.userNewsInfo)
                 this.setState({
-                    relation:this.props.user.relation
+                    usernews:this.props.user.userNewsInfo.userStatic,
+                    relation:this.props.user.userNewsInfo
                 })
             })
+
     }
     render() {
-        let user_locking=this.state.usernews.user_locking;
+        let user_locking=this.state.usernews.locked;
         let str=''
-        if (user_locking===1){
+        if (user_locking==1){
             str='已锁定'
-        }else if (user_locking===0){
+        }else if (user_locking==0){
             str='未锁定'
         }
         return (
@@ -169,62 +182,62 @@ class UserNews extends Component {
                     <table  width="100%" border="0" cellSpacing="0" cellPadding="0" >
                         <tbody>
                         <tr height='30px'>
-                            <td width='33%'>卡号：{this.state.usernews.user_cartId}</td>
-                            <td width='33%'>性别：{this.state.usernews.user_sex}</td>
-                            <td width='33%'>账号状态：{this.state.usernews.user_status}</td>
+                            <td width='33%'>卡号：{this.state.usernews.cardNumber}</td>
+                            <td width='33%'>性别：{this.state.usernews.sex}</td>
+                            <td width='33%'>账号状态：{this.state.usernews.accountState}</td>
                         </tr>
                         <tr height='30px'>
-                            <td>用户名：{this.state.usernews.user_name}</td>
-                            <td>生日：{this.state.usernews.user_bir}</td>
+                            <td>用户名：{this.state.usernews.userName}</td>
+                            <td>生日：{this.state.usernews.birthday}</td>
                             <td>锁定状态：{str}</td>
                         </tr>
                         <tr height='30px'>
-                            <td>用户类型：{this.state.usernews.user_type}</td>
-                            <td>用户职级：{this.state.usernews.user_rank}</td>
-                            <td>用户等级：{this.state.usernews.user_grade}</td>
+                            <td>用户类型：{this.state.usernews.userType}</td>
+                            <td>用户职级：{this.state.usernews.positionName}</td>
+                            <td>用户等级：{this.state.usernews.userGrade}</td>
                         </tr>
                         <tr height='30px'>
-                            <td>历史最高职级：{this.state.usernews.user_Mrank}</td>
-                            <td>注册时间：{this.state.usernews.user_retime}</td>
-                            <td>激活时间：{this.state.usernews.act_time}</td>
+                            <td>历史最高职级：{this.state.usernews.posbestName}</td>
+                            <td>注册时间：{this.state.usernews.createDate}</td>
+                            <td>激活时间：{this.state.usernews.cardactiveDate}</td>
                         </tr>
                         <tr height='30px'>
-                            <td>签约时间：{this.state.usernews.sign_time}</td>
-                            <td>开卡时间：{this.state.usernews.openCart_time}</td>
+                            <td>签约时间：{this.state.usernews.signDate}</td>
+                            <td>开卡时间：{this.state.usernews.cardcreateDate}</td>
                             <td>购物积分：
                                 <Link to={{
                                     pathname:'/home/integral',
-                                    query:{user_cartId:this.state.usernews.user_cartId
-                                    }}}>{this.state.usernews.shop_rank}</Link></td>
+                                    query:{usernews:this.state.usernews
+                                    }}}>{this.state.usernews.currPoint}</Link></td>
                         </tr>
                         <tr height='30px'>
-                            <td>直销体验点：{this.state.usernews.exp_point}</td>
-                            <td>证件类型：{this.state.usernews.cart_type}</td>
-                            <td>证件号码：{this.state.usernews.cart_id}</td>
+                            <td>直销体验点：{this.state.usernews.storeName}</td>
+                            <td>证件类型：{this.state.usernews.idType}</td>
+                            <td>证件号码：{this.state.usernews.idNumber}</td>
                         </tr>
                         <tr height='30px'>
-                            <td>绑定手机号：{this.state.usernews.user_tel}</td>
-                            <td>绑定邮箱地址：{this.state.usernews.user_email}</td>
+                            <td>绑定手机号：{this.state.usernews.phoneNumber}</td>
+                            <td>绑定邮箱地址：{this.state.usernews.mail}</td>
                             <td>经销商商户名称：
-                                <Link to={{pathname:'/home/Distributor',query:{user_cartId:this.state.usernews.user_cartId}}}>
-                                    {this.state.usernews.distributor}
+                                <Link to={{pathname:'/home/Distributor',query:{user_cartId:this.state.usernews.cardNumber}}}>
+                                    {this.state.usernews.distrName}
                                 </Link>
                             </td>
                         </tr>
                         <tr height='30px'>
-                            <td>配偶身份证：{this.state.usernews.spouse_cart}</td>
-                            <td>配偶姓名：{this.state.usernews.spouse_name}</td>
+                            <td>配偶身份证：{this.state.usernews.cooNumber}</td>
+                            <td>配偶姓名：{this.state.usernews.cooName}</td>
                             <td></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <strong className='userNewsTitle'>夫妻账号/合作伙伴账号</strong>
-                <Table pagination={false} columns={this.state.columns} dataSource={this.state.relation.relation} />
+                <Table pagination={false} columns={this.state.columns} dataSource={this.state.relation.cooperate} />
                 <strong className='userNewsTitle'>用户联系方式</strong>
-                <Table pagination={false} columns={this.state.columns1} dataSource={this.state.relation.telArr} />
+                <Table pagination={false} columns={this.state.columns1} dataSource={this.state.relation.liaisonlist} />
                 <strong className='userNewsTitle'>用户地址</strong>
-                <Table pagination={false} columns={this.state.columns2} dataSource={this.state.relation.addressArr} />
+                <Table pagination={false} columns={this.state.columns2} dataSource={this.state.relation.addressList} />
 
                 <div className='box'>
                     <strong>用户历史订单</strong>
@@ -232,11 +245,11 @@ class UserNews extends Component {
                 </div>
                 <div className='box'>
                     <strong>用户券使用情况</strong>
-                    <Link to={{pathname:'/home/CouponUse',query:{user_cartId:this.state.usernews.user_cartId}}}><span>点击查看</span></Link>
+                    <Link to={{pathname:'/home/CouponUse',query:{user_cartId:this.state.usernews.cardNumber}}}><span>点击查看</span></Link>
                 </div>
                 <div className='box'>
                     <strong>用户参与活动情况</strong>
-                    <Link to={{pathname:'/home/JoinActivity',query:{user_cartId:this.state.usernews.user_cartId}}}><span>点击查看</span></Link>
+                    <Link to={{pathname:'/home/JoinActivity',query:{user_cartId:this.state.usernews.cardNumber}}}><span>点击查看</span></Link>
                 </div>
                 <div>
                     <Collapse accordion>

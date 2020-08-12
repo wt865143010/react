@@ -59,36 +59,38 @@ export default class systemStore {
 
     @action searchEva=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.get(Api.system.searchEva,{params:obj})
+            Axios.post(Api.system.searchEva,obj)
                 .then(res=>{
-                    this.user_eva=res.data.data.eva;
+                    console.log(res.data)
+                    this.user_eva=res.data.data;
                     resolve('获取成功！')
                 })
         })
     }
     @action searchMsg1=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.get(Api.system.searchMsg1,{params:obj})
+            Axios.post(Api.system.searchMsg1,obj)
                 .then(res=>{
-                    this.leaveMsg=res.data.data.msg;
+                    this.leaveMsg=res.data.data;
                     resolve('获取成功！')
                 })
         })
     }
     @action searchPay=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.get(Api.system.searchPay,{params:obj})
+            Axios.post(Api.system.searchPay,obj)
                 .then(res=>{
-                    this.paylist=res.data.data.pay;
+                    this.paylist=res.data.data;
                     resolve('获取成功！')
                 })
         })
     }
     @action searchNews=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.get(Api.system.searchNews,{params:obj})
+            Axios.post(Api.system.searchNews,obj)
                 .then(res=>{
-                    this.newstem=res.data.data.tem;
+                    console.log(res.data)
+                    this.newstem=res.data.data;
                     resolve('获取成功！')
                 })
         })
@@ -116,7 +118,7 @@ export default class systemStore {
 
     @action eidtPay=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.put(Api.system.eidtPay,obj)
+            Axios.post(Api.system.eidtPay,obj)
                 .then(res=>{
 
                     resolve('修改成功！')
@@ -125,7 +127,7 @@ export default class systemStore {
     }
     @action eidtNews=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.put(Api.system.eidtNews,obj)
+            Axios.post(Api.system.eidtNews,obj)
                 .then(res=>{
 
                     resolve('修改成功！')
@@ -137,7 +139,7 @@ export default class systemStore {
 
     @action changeStatus=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.put(Api.system.changeStatus,obj)
+            Axios.post(Api.system.changeStatus,obj)
                 .then(res=>{
 
                     resolve('修改成功！')
@@ -148,13 +150,16 @@ export default class systemStore {
 
     @action changePayStatus=(obj)=>{
         return new Promise((resolve, reject) => {
-            Axios.put(Api.system.changePayStatus,obj)
+            Axios.post(Api.system.changePayStatus,obj)
                 .then(res=>{
-
                     resolve('修改成功！')
                 })
         })
     }
+
+
+
+
 
 
 

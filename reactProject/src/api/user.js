@@ -3,22 +3,22 @@ export default {
 
 
     getUser:"/user/getUser",
-    lockUser:'/user/lockUser',
+    lockUser:'/NSChina/View_user/update',
     cooperation:'/user/cooperation',
     relation:'/user/relation',
-    distributor:'/user/distributor',
+    distributor:'/NSChina/Distributor/showStatic',
     couponuse:'/user/couponUse',
     activity:'/user/joinActivity',
-    getFriend:'/user/getFriend',
+    getFriend:'/NSChina/cooperate/show',
     getIntegra:'/user/getIntegra',
 
 
-    searchUser:'/user/searchUser',
-    searchCou:'/user/searchCou',
-    searchInt:'/user/searchInt',
-    searchAct:'/user/searchAct',
-    addCoo:'/user/addCoo',
+    searchUser:'/NSChina/View_user/show',
+    searchCou:'/NSChina/UserCoupon/showUserCoupon',
+    searchInt:'/NSChina/PointSearch/showPointSearch',
+    searchAct:'/NSChina/UserActivity/showUserActivity\n',
+    addCoo:'/NSChina/cooperate/insert',
+    getUserInfo: '/NSChina/view_userstatic/showStatic',
 
-
-    delCon:'/user/delCon',
+    delCon:'/NSChina/UserCoupon/recovery',
 };

@@ -19,22 +19,22 @@ class CooperativePartner extends Component {
                 },
                 {
                     title: '姓名',
-                    dataIndex: 'fri_name',
+                    dataIndex: 'cooName',
                     key: 'id',
                 },
                 {
                     title: '配偶或合作伙伴类型',
-                    dataIndex: 'fri_type',
+                    dataIndex: 'cooType',
                     key: 'id',
                 },
                 {
                     title: '证件类型',
-                    dataIndex: 'cart_type',
+                    dataIndex: 'certificatesType',
                     key: 'id',
                 },
                 {
                     title: '证件号码',
-                    dataIndex: 'cart_id',
+                    dataIndex: 'cooIdNumber',
                     key: 'id',
                 },
             ],
@@ -43,7 +43,7 @@ class CooperativePartner extends Component {
     }
     componentWillMount() {
         let user_cartId=this.props.location.query.user_cartId;
-        this.props.user.getFriend({user_cartId:user_cartId})
+        this.props.user.getFriend({cardNumber:user_cartId})
             .then(data=>{
                 this.setState({
                     friend:this.props.user.friend
@@ -54,11 +54,23 @@ class CooperativePartner extends Component {
         console.log(this.coo_name.value)
         console.log(this.cart_type.value)
         console.log(this.cart_id.value)
-        this.props.user.addCoo()
+        this.props.user.addCoo({
+            cooName:this.coo_name.value,
+            certificatesType:this.cart_type.value,
+            cooIdNumber:this.cart_id.value,
+            cooType:'合作伙伴',
+            cardNumber:this.props.location.query.user_cartId
+        })
             .then(data=>{
-                this.setState({
-                    friend:this.props.user.friend
-                })
+                this.props.user.getFriend({cardNumber:this.props.location.query.user_cartId})
+                    .then(data=>{
+                        this.setState({
+                            friend:this.props.user.friend
+                        })
+                        this.coo_name.value='';
+                        this.cart_type.value='';
+                        this.cart_id.value='';
+                    })
             })
     }
     render() {
@@ -78,6 +90,7 @@ class CooperativePartner extends Component {
                         <div>
                             身份证类型：
                             <select name="" id="" ref={cart_type=>this.cart_type=cart_type}>
+                                <option value="">请选择</option>
                                 <option value="身份证">身份证</option>
                                 <option value="军官证">军官证</option>
                                 <option value="护照">护照</option>

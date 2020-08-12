@@ -21,22 +21,22 @@ class UserList extends Component {
                     dataIndex: 'id',
                     key: 'id',
                     render:(id,item)=>{
-                        if (item.user_t===0){
+                        if (item.accountType==0){
                             return (
                                 <Space>
-                                    <div>{id}</div>
+                                    <div>1</div>
                                 </Space>
                             )
-                        }else if (item.user_t===1){
+                        }else if (item.accountType==1){
                             return (
                                 <Space style={{width:'100%',height:'100%',backgroundColor:'green'}}>
-                                    <div>{id}</div>
+                                    <div>1</div>
                                 </Space>
                             )
-                        }else if (item.user_t===2){
+                        }else if (item.accountType==2){
                             return (
                                 <Space style={{width:'100%',height:'100%',backgroundColor:'#61dafb'}}>
-                                    <div>{id}</div>
+                                    <div>1</div>
                                 </Space>
                             )
                         }
@@ -44,46 +44,46 @@ class UserList extends Component {
                 },
                 {
                     title: '卡号',
-                    dataIndex: 'user_cartId',
+                    dataIndex: 'cardNumber',
                     key: 'id',
                 },
                 {
                     title: '姓名',
-                    dataIndex: 'user_name',
+                    dataIndex: 'userName',
                     key: 'id',
                 },
                 {
                     title: '用户类型',
-                    dataIndex: 'user_type',
+                    dataIndex: 'type',
                     key: 'id',
                 },
                 {
                     title: '绑定手机',
-                    dataIndex: 'user_tel',
+                    dataIndex: 'phone',
                     key: 'id',
                 },
                 {
                     title: '注册时间',
-                    dataIndex: 'user_retime',
+                    dataIndex: 'createDate',
                     key: 'id',
                 },
                 {
                     title: '状态',
-                    dataIndex: 'user_status',
+                    dataIndex: 'state',
                     key: 'id',
                 },
                 {
                     title: '锁定',
-                    dataIndex: 'user_locking',
+                    dataIndex: 'locked',
                     key: 'id',
-                    render: (user_locking,obj) => {
-                        if (user_locking===0){
+                    render: (locked,obj) => {
+                        if (locked==0){
                             return (
                                 <Space size="middle">
                                     <div className="icons-list">
                                         <Popconfirm
                                             title="确认锁定该用户吗?"
-                                            onConfirm={()=>this.confirm(user_locking,obj.user_cartId)}
+                                            onConfirm={()=>this.confirm(locked,obj.cardNumber)}
                                             onCancel={this.cancel}
                                             okText="确认"
                                             cancelText="取消"
@@ -100,7 +100,7 @@ class UserList extends Component {
                                     <div className="icons-list">
                                         <Popconfirm
                                             title="确认解锁该用户吗?"
-                                            onConfirm={()=>this.confirm(user_locking,obj.user_cartId)}
+                                            onConfirm={()=>this.confirm(locked,obj.cardNumber)}
                                             onCancel={this.cancel}
                                             okText="确认"
                                             cancelText="取消"
@@ -116,33 +116,33 @@ class UserList extends Component {
                 },
                 {
                     title: '用户等级',
-                    dataIndex: 'user_grade',
+                    dataIndex: 'gradeName',
                     key: 'id',
                 },
                 {
                     title: '操作',
                     key: 'id',
-                    dataIndex: 'user_cartId',
-                    render: (user_cartId,obj) => {
-                        if (obj.user_t===0){
+                    dataIndex: 'cardNumber',
+                    render: (cardNumber,obj) => {
+                        if (obj.accountType==0){
                             return (
                                 <Space size="middle">
-                                    <Link to={{pathname:'/home/usernews',query:{user_cartId:user_cartId}}}>查看</Link>
-                                    <Link to={{pathname:'/home/cooperative',query:{user_cartId:user_cartId,user_name:obj.user_name}}}>开通合作伙伴</Link>
+                                    <Link to={{pathname:'/home/usernews',query:{user_cartId:cardNumber}}}>查看</Link>
+                                    <Link to={{pathname:'/home/cooperative',query:{user_cartId:cardNumber,user_name:obj.userName}}}>开通合作伙伴</Link>
                                 </Space>
                             )
                         }else{
                             return (
                                 <Space size="middle">
-                                    <Link to={{pathname:'/home/usernews',query:{user_cartId:user_cartId}}}>查看</Link>
+                                    <Link to={{pathname:'/home/usernews',query:{user_cartId:cardNumber}}}>查看</Link>
                                 </Space>
                             )
                         }
                     }
                 },
             ],
-            pageNum:'',
-            pageSize:'',
+            pageNum:1,
+            pageSize:10,
 
             userNo:'',
             userName:'',
@@ -156,21 +156,19 @@ class UserList extends Component {
 
     //锁定
     confirm=(user_locking,user_cartId)=> {
-        let obj={user_cartId:user_cartId,user_locking:user_locking}
-        if (user_locking===0){
+        if (user_locking==0){
+            let obj={cardNumber:user_cartId,locked:1}
+            console.log(obj)
             this.props.user.lockUser(obj)
                 .then(()=>{
                     this.props.user.searchUser({
-                        userNo:this.state.userNo,
+                        cardNumber:this.state.userNo,
                         userName:this.state.userName,
-                        userTel:this.state.userTel,
-                        userId:this.state.userId,
-                        userLock:this.state.userLock,
-                        userSta:this.state.userSta,
-                        userSex:this.state.userSex,
-                        pageNum:this.state.pageNum,
-                        pageSize:this.state.pageSize,
-                        user_cartId:user_cartId
+                        phone:this.state.userTel,
+                        idNumber:this.state.userId,
+                        locked:this.state.userLock,
+                        state:this.state.userSta,
+                        sex:this.state.userSex,
                     })
                         .then(data=>{
                             this.setState({
@@ -181,19 +179,18 @@ class UserList extends Component {
 
                 })
         }else {
-            this.props.user.lockUser(obj)
+            let obj1={cardNumber:user_cartId,locked:0}
+            console.log(obj1)
+            this.props.user.lockUser(obj1)
                 .then(()=>{
                     this.props.user.searchUser({
-                        userNo:this.state.userNo,
+                        cardNumber:this.state.userNo,
                         userName:this.state.userName,
-                        userTel:this.state.userTel,
-                        userId:this.state.userId,
-                        userLock:this.state.userLock,
-                        userSta:this.state.userSta,
-                        userSex:this.state.userSex,
-                        pageNum:this.state.pageNum,
-                        pageSize:this.state.pageSize,
-                        user_cartId:user_cartId
+                        phone:this.state.userTel,
+                        idNumber:this.state.userId,
+                        locked:this.state.userLock,
+                        state:this.state.userSta,
+                        sex:this.state.userSex,
                     })
                         .then(data=>{
                             this.setState({
@@ -214,16 +211,15 @@ class UserList extends Component {
 
     componentWillMount() {
         let obj={
-            userNo:'',
+            cardNumber:'',
             userName:'',
-            userTel:'',
-            userId:'',
-            userLock:'',
-            userSta:'',
-            userSex:'',
-            pageNum:1,
-            pageSize:10
+            phone:'',
+            idNumber:'',
+            locked:'',
+            state:'',
+            sex:''
         }
+        console.log(obj)
         this.props.user.searchUser(obj)
             .then(data=>{
                 this.setState({
@@ -232,61 +228,7 @@ class UserList extends Component {
             })
     }
 
-    //切换每页展示条数
-    SizeChange=(pageNumber,pageSize)=>{
-        this.setState({
-            pageNum:pageNumber,
-            pageSize:pageSize
-        })
-        let obj={
-            userNo:this.state.userNo,
-            userName:this.state.userName,
-            userTel:this.state.userTel,
-            userId:this.state.userId,
-            userLock:this.state.userLock,
-            userSta:this.state.userSta,
-            userSex:this.state.userSex,
-            pageNum:pageNumber,
-            pageSize:pageSize
-        }
-        this.props.user.searchUser(obj)
-            .then(data=>{
-                this.setState({
-                    user:this.props.user.userlist
-                })
-            })
-    }
-    //切换页数
-    onChange=(pageNumber,pageSize)=>{
-        this.setState({
-            userNo:this.state.userNo,
-            userName:this.state.userName,
-            userTel:this.state.userTel,
-            userId:this.state.userId,
-            userLock:this.state.userLock,
-            userSta:this.state.userSta,
-            userSex:this.state.userSex,
-            pageNum:pageNumber,
-            pageSize:pageSize
-        })
-        let obj={
-            userNo:this.state.userNo,
-            userName:this.state.userName,
-            userTel:this.state.userTel,
-            userId:this.state.userId,
-            userLock:this.state.userLock,
-            userSta:this.state.userSta,
-            userSex:this.state.userSex,
-            pageNum:pageNumber,
-            pageSize:pageSize
-        }
-        this.props.user.searchUser(obj)
-            .then(data=>{
-                this.setState({
-                    user:this.props.user.userlist
-                })
-            })
-    }
+
     //搜索
     searchUser=()=>{
         let userNo=document.getElementById('userNo').value;
@@ -314,25 +256,26 @@ class UserList extends Component {
             }
         }
         let obj={
-            userNo:userNo,
+            cardNumber:userNo,
             userName:userName,
-            userTel:userTel,
-            userId:userId,
-            userLock:userLock,
-            userSta:userSta,
-            userSex:userSex
+            phone:userTel,
+            idNumber:userId,
+            locked:userLock,
+            state:userSta,
+            sex:userSex,
         }
         console.log(obj)
 
         this.setState({
-            userNo:userNo,
+            cardNumber:userNo,
             userName:userName,
-            userTel:userTel,
-            userId:userId,
-            userLock:userLock,
-            userSta:userSta,
-            userSex:userSex
+            phone:userTel,
+            idNumber:userId,
+            locked:userLock,
+            state:userSta,
+            sex:userSex
         })
+        console.log(obj)
         this.props.user.searchUser(obj)
             .then(data=>{
                 this.setState({
@@ -364,8 +307,6 @@ class UserList extends Component {
             userLock:'',
             userSta:'',
             userSex:'',
-            pageNum:1,
-            pageSize:10
         }
         this.props.user.searchUser(obj)
             .then(data=>{
@@ -420,13 +361,7 @@ class UserList extends Component {
                     </div>
                 </div>
 
-                <Table columns={this.state.columns} dataSource={this.state.user} pagination={false}/>
-                <Pagination showSizeChanger='true'
-                            showQuickJumper defaultCurrent={1}
-                            total={this.state.user.length}
-                            onShowSizeChange={this.SizeChange}
-                            onChange={this.onChange}
-                            pageSizeOptions={this.state.pageArr}/>
+                <Table columns={this.state.columns} dataSource={this.state.user} pagination={{defaultCurrent:1,defaultPageSize:5}}/>
             </div>
         )
     }

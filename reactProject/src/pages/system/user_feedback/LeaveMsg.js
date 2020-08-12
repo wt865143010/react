@@ -23,62 +23,62 @@ class LeaveMsg extends Component {
                 },
                 {
                     title: '卡号',
-                    dataIndex: 'msg_no',
+                    dataIndex: 'cardNumber',
                     key: 'id',
                 },
                 {
                     title: '用户手机号',
-                    dataIndex: 'phone',
+                    dataIndex: 'phoneNumber',
                     key: 'id',
                 },
                 {
                     title: '用户姓名',
-                    dataIndex: 'user_name',
+                    dataIndex: 'username',
                     key: 'id',
                 },
                 {
                     title: '反馈类型',
-                    dataIndex: 'msg_type',
+                    dataIndex: 'feedbackType',
                     key: 'id',
                 },
                 {
                     title: '整体满意度',
-                    dataIndex: 'msg_sat',
+                    dataIndex: 'satisfaction',
                     key: 'id',
                 },
                 {
                     title: '反馈时间',
-                    dataIndex: 'msg_time',
+                    dataIndex: 'feedbackTime',
                     key: 'id',
                 },
                 {
                     title: '反馈内容',
-                    dataIndex: 'msg_content',
+                    dataIndex: 'feedbackContent',
                     key: 'id',
                 },
             ],
             msg_time:[],
-            pageNum:'',
-            pageSize:'',
             id_no:'',
             user_tel:'',
             user_name:'',
             msg_type:'',
             msg_eva:'',
+            start:'',
+            end:''
         }
     }
     componentWillMount() {
         let obj={
-            id_no:'',
-            user_tel:'',
-            user_name:'',
-            msg_type:'',
-            msg_eva:'',
-            msg_time:'',
-            pageNum:1,
-            pageSize:10
+            cardNumber:'',
+            phoneNumber:'',
+            username:'',
+            feedbackType:'',
+            satisfaction:'',
+            feedbackTime:'',
+            start:'',
+            end:''
         }
-        this.props.system.searchMsg(obj)
+        this.props.system.searchMsg1(obj)
             .then(data=>{
                 this.setState({
                     msg:this.props.system.leaveMsg
@@ -90,105 +90,64 @@ class LeaveMsg extends Component {
          console.log(data[1]._d.toLocaleString())
          let date={start:data[0]._d.toLocaleString(),end:data[1]._d.toLocaleString()}
          this.setState({
-             msg_time:date
+             start:data[0]._d.toLocaleString(),
+             end:data[1]._d.toLocaleString()
          })
      }
 
     searchMsg=()=>{
         let obj={
-            id_no:this.id_no.value,
-            user_tel:this.user_tel.value,
-            user_name:this.user_name.value,
-            msg_type:this.msg_type.value,
-            msg_eva:this.msg_eva.value,
-            msg_time:this.state.msg_time,
-            pageNum:this.state.pageNum,
-            pageSize:this.state.pageSize
+            cardNumber:this.id_no.value,
+            phoneNumber:this.user_tel.value,
+            username:this.user_name.value,
+            feedbackType:this.msg_type.value,
+            satisfaction:this.msg_eva.value,
+            feedbackTime:this.state.msg_time,
+            start:this.state.start,
+            end:this.state.end
         }
         this.setState({
-            id_no:this.id_no.value,
-            user_tel:this.user_tel.value,
-            user_name:this.user_name.value,
-            msg_type:this.msg_type.value,
-            msg_eva:this.msg_eva.value,
+            cardNumber:this.id_no.value,
+            phoneNumber:this.user_tel.value,
+            username:this.user_name.value,
+            feedbackType:this.msg_type.value,
+            satisfaction:this.msg_eva.value,
+            feedbackTime:this.state.msg_time,
         })
         console.log(obj)
-        this.props.system.searchMsg(obj)
+        this.props.system.searchMsg1(obj)
             .then(data=>{
                 this.setState({
                     msg:this.props.system.leaveMsg
                 })
             })
     }
-    SizeChange=(pageNumber,pageSize)=>{
-        this.setState({
-            pageNum:pageNumber,
-            pageSize:pageSize
-        })
-        let obj={
-            id_no:this.state.id_no,
-            user_tel:this.state.user_tel,
-            user_name:this.state.user_name,
-            msg_type:this.state.msg_type,
-            msg_eva:this.state.msg_eva,
-            msg_time:this.state.msg_time,
-            pageNum:pageNumber,
-            pageSize:pageSize
-        }
-        this.props.system.searchMsg(obj)
-            .then(data=>{
-                this.setState({
-                    msg:this.props.system.leaveMsg
-                })
-            })
-    }
-    onChange=(pageNumber,pageSize)=>{
-        this.setState({
-            pageNum:pageNumber,
-            pageSize:pageSize
-        })
-        let obj={
-            id_no:this.state.id_no,
-            user_tel:this.state.user_tel,
-            user_name:this.state.user_name,
-            msg_type:this.state.msg_type,
-            msg_eva:this.state.msg_eva,
-            msg_time:this.state.msg_time,
-            pageNum:pageNumber,
-            pageSize:pageSize
-        }
-        this.props.system.searchMsg(obj)
-            .then(data=>{
-                this.setState({
-                    msg:this.props.system.leaveMsg
-                })
-            })
-    }
+
     reset=()=>{
         this.id_no.value=''
         this.user_tel.value=''
         this.user_name.value=''
         this.setState({
-            id_no:'',
-            user_tel:'',
-            user_name:'',
-            msg_type:'',
-            msg_eva:'',
-            msg_time:'',
-            pageNum:1,
-            pageSize:10
+            cardNumber:'',
+            phoneNumber:'',
+            username:'',
+            feedbackType:'',
+            satisfaction:'',
+            feedbackTime:'',
+            start:'',
+            end:''
         })
         let obj={
-            id_no:'',
-            user_tel:'',
-            user_name:'',
-            msg_type:'',
-            msg_eva:'',
-            msg_time:'',
-            pageNum:1,
-            pageSize:10
+            cardNumber:'',
+            phoneNumber:'',
+            username:'',
+            feedbackType:'',
+            satisfaction:'',
+            feedbackTime:'',
+            start:'',
+            end:''
         }
-        this.props.system.searchMsg(obj)
+        this.props.system.searchMsg1(obj)
             .then(data=>{
                 this.setState({
                     msg:this.props.system.leaveMsg
@@ -218,6 +177,7 @@ class LeaveMsg extends Component {
                         <div>
                             反馈类型：
                             <select name="" id="" ref={msg_type=>this.msg_type=msg_type}>
+                                <option value="">所有</option>
                                 <option value="服务建议">服务建议</option>
                                 <option value="网站建设">网站建设</option>
                                 <option value="产品建议">产品建议</option>
@@ -244,13 +204,7 @@ class LeaveMsg extends Component {
                         <input type="button" value='数据导出'/>
                     </div>
                     <div className='evaTab'>
-                        <Table pagination='false' columns={this.state.columns} dataSource={this.state.msg} />
-                        <Pagination showSizeChanger='true'
-                                    showQuickJumper defaultCurrent={1}
-                                    total={this.state.msg.length}
-                                    onShowSizeChange={this.SizeChange}
-                                    onChange={this.onChange}
-                                    pageSizeOptions={this.state.pageArr}/>
+                        <Table columns={this.state.columns} pagination={{defaultCurrent:1,defaultPageSize:5}} dataSource={this.state.msg} />
                     </div>
                 </div>
             </div>

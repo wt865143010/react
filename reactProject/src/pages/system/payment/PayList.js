@@ -19,31 +19,31 @@ class PayList extends Component {
                 },
                 {
                     title: '支付方式',
-                    dataIndex: 'pay_way',
+                    dataIndex: 'paymentName',
                     key: 'id',
                 },
                 {
                     title: '创建人',
-                    dataIndex: 'founder_name',
+                    dataIndex: 'userId',
                     key: 'id',
                 },
                 {
                     title: '创建时间',
-                    dataIndex: 'founder_time',
+                    dataIndex: 'createDate',
                     key: 'id',
                 },
                 {
                     title: '状态',
-                    dataIndex: 'status',
+                    dataIndex: 'paymentState',
                     key: 'id',
-                    render:(status)=>{
-                        if (status===0){
+                    render:(paymentState)=>{
+                        if (paymentState==0){
                             return (
                                 <Space>
                                     <div>禁用</div>
                                 </Space>
                             )
-                        }else if (status===1){
+                        }else if (paymentState==1){
                             return (
                                 <Space>
                                     <div>启用</div>
@@ -57,7 +57,7 @@ class PayList extends Component {
                     dataIndex: 'id',
                     key: 'id',
                     render:(id,item)=>{
-                        if (item.status===0){
+                        if (item.paymentState==0){
                             return (
                                 <Space>
                                     <Link to={{pathname:'/home/addPay',query:{item:item}}}>编辑</Link>
@@ -72,7 +72,7 @@ class PayList extends Component {
                                     </Popconfirm>
                                 </Space>
                             )
-                        }else if (item.status===1){
+                        }else if (item.paymentState==1){
                             return (
                                 <Space>
                                     <Link to={{pathname:'/home/addPay',query:{item:item}}}>编辑</Link>
@@ -96,7 +96,7 @@ class PayList extends Component {
         }
     }
     confirm=(item)=> {
-        if (item.status===0){
+        if (item.paymentState==0){
             this.changePayStatus(item)
             message.success('启用成功');
         }else {
@@ -112,27 +112,50 @@ class PayList extends Component {
     }
 
     changePayStatus=(item)=>{
-        let obj={
-            id:item.id,
-            status:item.status
-        }
-        this.props.system.changePayStatus(obj)
-            .then(data=>{
-                this.props.system.searchPay({
-                    payWay:'',
-                    paySta:'',
-                })
-                    .then(data=>{
-                        this.setState({
-                            paylist:this.props.system.paylist
-                        })
+        if (item.paymentState==0){
+            let obj={
+                id:item.id,
+                paymentState:1
+            }
+
+            this.props.system.changePayStatus(obj)
+                .then(data=>{
+                    this.props.system.searchPay({
+                        paymentName:'',
+                        paymentState:'',
                     })
-            })
+                        .then(data=>{
+                            this.setState({
+                                paylist:this.props.system.paylist
+                            })
+                        })
+                })
+        }else {
+            let obj={
+                id:item.id,
+                paymentState:0
+            }
+
+            this.props.system.changePayStatus(obj)
+                .then(data=>{
+                    this.props.system.searchPay({
+                        paymentName:'',
+                        paymentState:'',
+                    })
+                        .then(data=>{
+                            this.setState({
+                                paylist:this.props.system.paylist
+                            })
+                        })
+                })
+        }
+
+
     }
     componentWillMount() {
         let obj={
-            payWay:'',
-            paySta:'',
+            paymentName:'',
+            paymentState:'',
         }
         this.props.system.searchPay(obj)
             .then(data=>{
@@ -146,8 +169,8 @@ class PayList extends Component {
     }
     searchPay=()=>{
         let obj={
-            payWay:this.payWay.value,
-            paySta:this.paySta.value,
+            paymentName:this.payWay.value,
+            paymentState:this.paySta.value,
         }
         this.setState({
             payWay:this.payWay.value,
@@ -168,8 +191,8 @@ class PayList extends Component {
             paySta:'',
         })
         let obj={
-            payWay:'',
-            paySta:'',
+            paymentName:'',
+            paymentState:'',
         }
         this.props.system.searchPay(obj)
             .then(data=>{
@@ -197,6 +220,7 @@ class PayList extends Component {
                         <div>
                             状态：
                             <select name="" id="" ref={paySta=>this.paySta=paySta}>
+                                <option value="">所有</option>
                                 <option value="启用">启用</option>
                                 <option value="禁用">禁用</option>
                             </select>
@@ -208,7 +232,7 @@ class PayList extends Component {
                         <input type="button" value='新增支付方式' onClick={this.addPay}/>
                     </div>
                     <div className='payTab'>
-                        <Table pagination='false' columns={this.state.columns} dataSource={this.state.paylist} />
+                        <Table pagination={{defaultCurrent:1,defaultPageSize:5}} columns={this.state.columns} dataSource={this.state.paylist} />
                     </div>
                 </div>
             </div>

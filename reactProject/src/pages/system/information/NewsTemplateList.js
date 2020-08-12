@@ -22,37 +22,37 @@ class NewsTemplateList extends Component {
                 },
                 {
                     title: '消息渠道',
-                    dataIndex: 'tem_way',
+                    dataIndex: 'channelName',
                     key: 'id',
                 },
                 {
                     title: '消息类型',
-                    dataIndex: 'tem_type',
+                    dataIndex: 'typeName',
                     key: 'id',
                 },
                 {
                     title: '模板编码',
-                    dataIndex: 'tem_no',
+                    dataIndex: 'coding',
                     key: 'id',
                 },
                 {
                     title: '模板名称',
-                    dataIndex: 'tem_name',
+                    dataIndex: 'name',
                     key: 'id',
                 },
                 {
                     title: '新建时间',
-                    dataIndex: 'add_time',
+                    dataIndex: 'newTime',
                     key: 'id',
                 },
                 {
                     title: '报备时间',
-                    dataIndex: 'rep_time',
+                    dataIndex: 'reportingTime',
                     key: 'id',
                 },
                 {
                     title: '报备状态',
-                    dataIndex: 'rep_sta',
+                    dataIndex: 'reportStatus',
                     key: 'id',
                 },
                 {
@@ -60,7 +60,7 @@ class NewsTemplateList extends Component {
                     dataIndex: 'status',
                     key: 'id',
                     render:(status)=>{
-                        if (status===0){
+                        if (status==0){
                             return (
                                 <Space>
                                     <div>禁用</div>
@@ -77,11 +77,11 @@ class NewsTemplateList extends Component {
                 },
                 {
                     title: '操作',
-                    dataIndex: 'rep_sta',
+                    dataIndex: 'reportStatus',
                     key: 'id',
-                    render:(rep_sta,item)=>{
-                        if (rep_sta==='未报备'){
-                            if (item.status===0){
+                    render:(reportStatus,item)=>{
+                        if (reportStatus=='未报备'){
+                            if (item.status==0){
                                 return (
                                     <Space>
                                         <Link to={{pathname:'/home/addNewsTem',query:{item:item}}}>编辑</Link>
@@ -116,7 +116,7 @@ class NewsTemplateList extends Component {
                                 )
                             }
                         }else {
-                            if (item.status===0){
+                            if (item.status==0){
                                 return (
                                     <Space>
                                         <Link to={{pathname:'/home/addNewsTem',query:{item:item}}}>编辑</Link>
@@ -159,14 +159,16 @@ class NewsTemplateList extends Component {
             newType:'',
             newSta:'',
             sta:'',
+            start:'',
+            end:'',
         }
     }
     confirm=(item)=> {
-        if (item.status===0){
-            this.changeStatus(item)
+        if (item.status==0){
+            this.changeStatus({id:item.id,status:1})
             message.success('启用成功');
         }else {
-            this.changeStatus(item)
+            this.changeStatus({id:item.id,status:0})
             message.success('禁用成功');
         }
     }
@@ -174,32 +176,23 @@ class NewsTemplateList extends Component {
     cancel=(e)=> {
         message.error('已取消');
     }
-    changeStatus=(item)=>{
-        let obj={
-            id:item.id,
-            status:item.status
-        }
+    changeStatus=(obj)=>{
         this.props.system.changeStatus(obj)
             .then(data=>{
                 this.props.system.searchNews({
-                    newWay:this.newWay.value,
-                    temName:this.temName.value,
-                    newType:this.newType.value,
-                    newSta:this.newSta.value,
-                    sta:this.sta.value,
-                    addTime:this.state.addTime
+                    channeName:this.state.newWay,
+                    name:this.state.temName,
+                    typeName:this.state.newType,
+                    reportStatus:this.state.newSta,
+                    status:this.state.sta,
+                    start:this.state.start,
+                    end:this.state.end
                 })
                     .then(data=>{
                         this.setState({
                             sys_news:this.props.system.newstem
                         })
-                        // if (item.status===0){
-                        //     this.changeStatus(item)
-                        //     message.success('启用成功');
-                        // }else {
-                        //     this.changeStatus(item)
-                        //     message.success('禁用成功');
-                        // }
+                        
                     })
             })
     }
@@ -207,17 +200,18 @@ class NewsTemplateList extends Component {
     changeRepTime=(item)=>{
         let obj={
             id:item.id,
-            status:item.rep_sta
+            reportStatus:'进行中'
         }
         this.props.system.changeStatus(obj)
             .then(data=>{
                 this.props.system.searchNews({
-                    newWay:this.newWay.value,
-                    temName:this.temName.value,
-                    newType:this.newType.value,
-                    newSta:this.newSta.value,
-                    sta:this.sta.value,
-                    addTime:this.state.addTime
+                    channeName:this.state.newWay,
+                    name:this.state.temName,
+                    typeName:this.state.newType,
+                    reportStatus:this.state.newSta,
+                    status:this.state.sta,
+                    start:this.state.start,
+                    end:this.state.end
                 })
                     .then(data=>{
                         this.setState({
@@ -230,12 +224,13 @@ class NewsTemplateList extends Component {
 
     componentWillMount() {
         let obj={
-            newWay:'',
-            temName:'',
-            newType:'',
-            newSta:'',
-            sta:'',
-            addTime:''
+            channeName:'',
+            name:'',
+            typeName:'',
+            reportStatus:'',
+            status:'',
+            start:'',
+            end:'',
         }
         this.props.system.searchNews(obj)
             .then(data=>{
@@ -250,27 +245,29 @@ class NewsTemplateList extends Component {
         this.props.history.push('/home/addNewsTem')
     }
     getTime=(data)=>{
-        let date={start:data[0]._d.toLocaleString(),end:data[1]._d.toLocaleString()}
         this.setState({
-             addTime:date
+            start:data[0]._d.toLocaleString(),
+            end:data[1]._d.toLocaleString(),
         })
-        console.log(date)
     }
     searchNews=()=>{
         let obj={
-            newWay:this.newWay.value,
-            temName:this.temName.value,
-            newType:this.newType.value,
-            newSta:this.newSta.value,
-            sta:this.sta.value,
-            addTime:this.state.addTime
+            channeName:this.newWay.value,
+            name:this.temName.value,
+            typeName:this.newType.value,
+            reportStatus:this.newSta.value,
+            status:this.sta.value,
+            start:this.state.start,
+            end:this.state.end,
         }
         this.setState({
             newWay:this.newWay.value,
             temName:this.temName.value,
             newType:this.newType.value,
             newSta:this.newSta.value,
-            sta:this.sta.value
+            sta:this.sta.value,
+            start:'',
+            end:'',
         })
         this.props.system.searchNews(obj)
             .then(data=>{
@@ -286,12 +283,13 @@ class NewsTemplateList extends Component {
         this.newSta.value='';
         this.sta.value='';
         let obj={
-            newWay:'',
-            temName:'',
-            newType:'',
-            newSta:'',
-            sta:'',
-            addTime:''
+            channeName:'',
+            name:'',
+            typeName:'',
+            reportStatus:'',
+            status:'',
+            start:'',
+            end:'',
         }
         this.props.system.searchNews(obj)
             .then(data=>{
@@ -367,7 +365,7 @@ class NewsTemplateList extends Component {
                         <input type="button" value='新增' onClick={this.addNewsTem}/>
                     </div>
                     <div className='newsTab'>
-                        <Table pagination={false} columns={this.state.columns} dataSource={this.state.sys_news} />
+                        <Table pagination={{defaultCurrent:1,defaultPageSize:5}} columns={this.state.columns} dataSource={this.state.sys_news} />
                     </div>
                 </div>
             </div>

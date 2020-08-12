@@ -17,12 +17,11 @@ class Distributor extends Component {
     }
     componentWillMount() {
         let user_cartId=this.props.location.query.user_cartId;
-        this.props.user.getdistributorNews({user_cartId:user_cartId})
+        this.props.user.getdistributorNews({cardNumber:user_cartId})
             .then(data=>{
                 this.setState({
-                    info:this.props.user.distributor.info[0],
-                    bankNews:this.props.user.distributor.bankNews[0],
-                    shareholder:this.props.user.distributor.shareholder[0]
+                    info:this.props.user.distributor.distributor,
+                    bankNews:this.props.user.distributor.bankAccount
                 })
             })
         console.log(this.distributorArr)
@@ -45,29 +44,29 @@ class Distributor extends Component {
                         <table  width="100%" border="0" cellSpacing="0" cellPadding="0" >
                             <tbody>
                             <tr height='30px'>
-                                <td width='33%'>卡号：{this.state.info.cart_Id}</td>
-                                <td width='33%'>性别：{this.state.info.sex}</td>
-                                <td width='33%'>用户名：{this.state.info.name}</td>
+                                <td width='33%'>卡号：{this.state.info.caId}</td>
+                                <td width='33%'>性别：{this.state.info.disSex}</td>
+                                <td width='33%'>用户名：{this.state.info.disName}</td>
                             </tr>
                             <tr height='30px'>
-                                <td>身份证：{this.state.info.cartID}</td>
-                                <td>商号负责人/法定代表人：{this.state.info.person}</td>
-                                <td>婚姻状况 ：{this.state.info.ismarriage}</td>
+                                <td>身份证：{this.state.info.disIdentitynumber}</td>
+                                <td>商号负责人/法定代表人：{this.state.info.disLegalrepresentative}</td>
+                                <td>婚姻状况 ：{this.state.info.disMarriage}</td>
                             </tr>
                             <tr height='30px'>
-                                <td>营业执照登记的注册地址：{this.state.info.business_address}</td>
+                                <td>营业执照登记的注册地址：{this.state.info.disRegisteredaddress}</td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr height='30px'>
-                                <td>经营场所是否与注册地址一致：{this.state.info.isequally_add}</td>
-                                <td>是否已取得《食品流通许可证》：{this.state.info.isgain}</td>
-                                <td>是否已取得《保健食品经营许可证》：{this.state.info.isgain1}</td>
+                                <td>经营场所是否与注册地址一致：{this.state.info.disIfbr}</td>
+                                <td>是否已取得《食品流通许可证》：{this.state.info.disIffoodc}</td>
+                                <td>是否已取得《保健食品经营许可证》：{this.state.info.disIffoodh}</td>
                             </tr>
                             <tr height='30px'>
-                                <td>配偶姓名：{this.state.info.spouse_name}</td>
-                                <td>配偶身份证号 ：{this.state.info.spouse_id}</td>
-                                <td>纳税人识别号 ：{this.state.info.taxpayer_id}</td>
+                                <td>配偶姓名：{this.state.info.disSpousename}</td>
+                                <td>配偶身份证号 ：{this.state.info.disIdnumber}</td>
+                                <td>纳税人识别号 ：{this.state.info.disTaxpayernumbe}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -83,14 +82,14 @@ class Distributor extends Component {
                         <table  width="100%" border="0" cellSpacing="0" cellPadding="0" >
                             <tbody>
                             <tr height='30px'>
-                                <td width='33%'>商户银行账号：{this.state.bankNews.bank_account}</td>
-                                <td width='33%'>开户省：{this.state.bankNews.province}</td>
-                                <td width='33%'>开户市：{this.state.bankNews.city}</td>
+                                <td width='33%'>商户银行账号：{this.state.bankNews.bcAccount}</td>
+                                <td width='33%'>开户省：{this.state.bankNews.bcProvince}</td>
+                                <td width='33%'>开户市：{this.state.bankNews.bcCity}</td>
                             </tr>
                             <tr height='30px'>
-                                <td>开户行：{this.state.bankNews.bank}</td>
-                                <td>户名：{this.state.bankNews.bank_name}</td>
-                                <td>商号名称：{this.state.bankNews.distributor_name}</td>
+                                <td>开户行：{this.state.bankNews.bcBank}</td>
+                                <td>户名：{this.state.bankNews.bcAccountName}</td>
+                                <td>商号名称：{this.state.bankNews.disName}</td>
                             </tr>
                             <tr height='30px'>
                                 <td>联系地址：{this.state.bankNews.address}</td>
@@ -98,8 +97,8 @@ class Distributor extends Component {
                                 <td></td>
                             </tr>
                             <tr height='30px'>
-                                <td>邮政编码 ：{this.state.bankNews.postal_code}</td>
-                                <td>手机：{this.state.bankNews.phone}</td>
+                                <td>邮政编码 ：{this.state.bankNews.bcCode}</td>
+                                <td>手机：{this.state.bankNews.bcPhoneNumber}</td>
                                 <td></td>
                             </tr>
                             </tbody>
@@ -111,8 +110,8 @@ class Distributor extends Component {
                         <table  width="100%" border="0" cellSpacing="0" cellPadding="0" >
                             <tbody>
                             <tr height='30px'>
-                                <td width='50%'>股东：{this.state.shareholder.shareholder_name}</td>
-                                <td width='50%'>身份证：{this.state.shareholder.shareholder_cartId}</td>
+                                <td width='50%'>股东：{this.state.info.disName}</td>
+                                <td width='50%'>身份证：{this.state.info.disIdentitynumber}</td>
                             </tr>
                            
                             </tbody>

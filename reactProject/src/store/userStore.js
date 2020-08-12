@@ -496,6 +496,9 @@ export default class userStore {
     @observable integra=[];
     @observable isLogin=false;
     @observable token="";
+    @observable userNewsInfo=[];
+
+
     //登录
     @action login=(obj)=>{
         console.log('登录')
@@ -504,6 +507,7 @@ export default class userStore {
                 .then(res=>{
                     console.log(res.data)
                         // this.user=res.data.data;
+                    sessionStorage.setItem('username',obj.number)
                         this.token=res.data.token
                     sessionStorage.setItem('token',res.data.token);
                         resolve(res);
@@ -569,9 +573,10 @@ export default class userStore {
     @action getdistributorNews=(obj)=>{
         console.log('获取经销商信息')
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.distributor,{params:obj})
+            Axios.post(Api.user.distributor,obj)
                 .then(res=>{
-                    this.distributor=res.data.data
+                    console.log(res.data)
+                    this.distributor=res.data
                     // console.log(this.distributor)
                     resolve(this.distributor)
                 })
@@ -606,9 +611,10 @@ export default class userStore {
     @action getFriend=(obj)=>{
         console.log('获取合作伙伴账号')
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.getFriend,{params:obj})
+            Axios.post(Api.user.getFriend,obj)
                 .then(res=>{
-                    this.friend=res.data.data.fri
+                    console.log(res.data)
+                    this.friend=res.data.AllCooperate
                     resolve(this.activity)
                 })
         })
@@ -631,10 +637,22 @@ export default class userStore {
     @action searchUser=(obj)=>{
         console.log('查询用户')
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.searchUser,{params:obj})
+            Axios.post(Api.user.searchUser,obj)
                 .then(res=>{
-                    this.userlist=res.data;
+                    this.userlist=res.data.data;
                     resolve(this.activity)
+                })
+        })
+    }
+
+    //用户详情基本信息
+    @action getUserInfo=(obj)=>{
+        return new Promise((resolve, reject) => {
+            Axios.post(Api.user.getUserInfo,obj)
+                .then(res=>{
+                    console.log(res.data)
+                    this.userNewsInfo=res.data;
+                    resolve(res.data.data)
                 })
         })
     }
@@ -643,9 +661,10 @@ export default class userStore {
         console.log('查询优惠券使用')
         console.log(obj)
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.searchCou,{params:obj})
+            Axios.post(Api.user.searchCou,obj)
                 .then(res=>{
-                    this.coupon=res.data.data.con;
+                    console.log(res.data)
+                    this.coupon=res.data.userCoupons;
                     resolve(this.activity)
                 })
         })
@@ -655,9 +674,10 @@ export default class userStore {
     @action searchInt=(obj)=>{
         console.log('查询积分使用')
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.searchInt,{params:obj})
+            Axios.post(Api.user.searchInt,obj)
                 .then(res=>{
-                    this.integra=res.data.data.int;
+                    console.log(res.data)
+                    this.integra=res.data.pointsearches;
                     resolve(this.activity)
                 })
         })
@@ -666,9 +686,10 @@ export default class userStore {
     @action searchAct=(obj)=>{
         console.log('查询参加活动')
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.searchAct,{params:obj})
+            Axios.post(Api.user.searchAct,obj)
                 .then(res=>{
-                    this.activity=res.data.data.act;
+                    console.log(res.data)
+                    this.activity=res.data.userActivities;
                     resolve(this.activity)
                 })
         })
@@ -678,9 +699,8 @@ export default class userStore {
     @action addCoo=(obj)=>{
         console.log('开通合作伙伴')
         return new Promise((resolve, reject) => {
-            Axios.get(Api.user.addCoo,{params:obj})
+            Axios.post(Api.user.addCoo,obj)
                 .then(res=>{
-                    this.activity=res.data.data.act;
                     resolve(this.activity)
                 })
         })
@@ -690,7 +710,7 @@ export default class userStore {
         console.log('回收优惠券')
         console.log(obj)
         return new Promise((resolve, reject) => {
-            Axios.delete(Api.user.delCon,{params:obj})
+            Axios.post(Api.user.delCon,obj)
                 .then(res=>{
 
                     resolve('回收成功')

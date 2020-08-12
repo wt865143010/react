@@ -15,50 +15,83 @@ class CouponUse extends Component {
             columns:[
                 {
                     title: '优惠券编号',
-                    dataIndex: 'con_no',
+                    dataIndex: 'cid',
                     key: 'id',
                 },
                 {
                     title: '优惠券类型',
-                    dataIndex: 'con_type',
+                    dataIndex: 'couponType',
                     key: 'id',
+                    render:(couponType)=>{
+                       if (couponType==0){
+                           return (
+                               <Space>
+                                   <div>资格券</div>
+                               </Space>
+                           )
+                       }else if(couponType==1){
+                           return (
+                               <Space>
+                                   <div>优惠券</div>
+                               </Space>
+                           )
+                       }else {
+                           return (
+                               <Space>
+                                   <div>免运费券</div>
+                               </Space>
+                           )
+                       }
+                    }
                 },
                 {
                     title: '优惠券名称',
-                    dataIndex: 'con_name',
+                    dataIndex: 'couponName',
                     key: 'id',
                 },
                 {
                     title: '领取时间',
-                    dataIndex: 'in_time',
+                    dataIndex: 'receiveDate',
                     key: 'id',
                 },
                 {
                     title: '领取方式',
-                    dataIndex: 'in_type',
+                    dataIndex: 'receiveType',
                     key: 'id',
                 },
                 {
                     title: '状态',
-                    dataIndex: 'use_type',
+                    dataIndex: 'couponStatus',
                     key: 'id',
-                    render:(use_type,item)=>{
-                        if (use_type===1){
+                    render:(couponStatus,item)=>{
+                        if (couponStatus==1){
                             return (
                                 <Space size="middle">
-                                    <div>已转让</div>
+                                    <div>未转让</div>
                                 </Space>
                             )
-                        }else if(use_type===2){
+                        }else if(couponStatus==2){
+                            return (
+                                <Space size="middle">
+                                    <div>已过期</div>
+                                </Space>
+                            )
+                        }else if (couponStatus==0){
                             return (
                                 <Space size="middle">
                                     <div>已使用</div>
                                 </Space>
                             )
-                        }else if (use_type===0){
+                        }else if (couponStatus==3){
                             return (
                                 <Space size="middle">
-                                    <div>未使用</div>
+                                    <div>已作废</div>
+                                </Space>
+                            )
+                        }else if (couponStatus==4){
+                            return (
+                                <Space size="middle">
+                                    <div>已转让</div>
                                 </Space>
                             )
                         }
@@ -66,54 +99,31 @@ class CouponUse extends Component {
                 },
                 {
                     title: '使用时间',
-                    dataIndex: 'use_time',
+                    dataIndex: 'useDate',
                     key: 'id',
                 },
                 {
                     title: '使用方式',
-                    dataIndex: 'use_type',
+                    dataIndex: 'useType',
                     key: 'id',
-                    render:(use_type,item)=>{
-                        if (use_type===1){
-                            return (
-                                <Space size="middle">
-                                    <div>付款消费</div>
-                                </Space>
-                            )
-                        }else if(use_type===2){
-                            return (
-                                <Space size="middle">
-                                    <div>已转让</div>
-                                </Space>
-                            )
-                        }
-                    }
                 },
                 {
                     title: '操作',
-                    dataIndex: 'use_type',
+                    dataIndex: 'couponStatus',
                     key: 'id',
-                    render:(use_type,item)=>{
-                        if (use_type===0){
+                    render:(couponStatus,item)=>{
+                        if (couponStatus==2||couponStatus==3){
                             return (
                                 <Space size="middle">
-                                    <span onClick={()=>{
-                                        this.recovery(item.con_no)
-                                    }}>收回</span>
                                     <Link to=''>查看轨迹</Link>
                                 </Space>
                             )
-                        }else if (use_type===1){
+                        }else{
                             return (
                                 <Space size="middle">
                                     <span onClick={()=>{
-                                        this.recovery(item.con_no)
+                                        this.recovery(item.cid)
                                     }}>收回</span>
-                                </Space>
-                            )
-                        }else if (use_type===2){
-                            return (
-                                <Space size="middle">
                                     <Link to=''>查看轨迹</Link>
                                 </Space>
                             )
@@ -132,13 +142,15 @@ class CouponUse extends Component {
     }
     componentWillMount() {
         let obj={
-            cou_no:'',
-            cou_type:'',
-            cou_name:'',
-            cou_way:'',
-            getTime:'',
-            useTime:'',
-            user_cartId:this.props.location.query.user_cartId
+            cid:'',
+            couponType:'',
+            couponName:'',
+            receiveType:'',
+            restartDate:'',
+            reendDate:'',
+            usestartDate:'',
+            useendDate:'',
+            cardNumber:this.props.location.query.user_cartId
         }
         this.props.user.searchCou(obj)
             .then(data=>{
@@ -149,17 +161,18 @@ class CouponUse extends Component {
     }
     //收回优惠券
      recovery=(no)=>{
-        let obj={con_no:no}
-        this.props.user.delCon(obj)
+        this.props.user.delCon({cid:no})
             .then(data=>{
                 this.props.user.searchCou({
-                    cou_no:this.state.cou_no,
-                    cou_type:this.state.cou_type,
-                    cou_name:this.state.cou_name,
-                    cou_way:this.state.cou_way,
-                    getTime:this.state.getTime,
-                    useTime:this.state.useTime,
-                    user_cartId:this.props.location.query.user_cartId
+                    cid:this.state.cou_no,
+                    couponType:this.state.cou_type,
+                    couponName:this.state.cou_name,
+                    receiveType:this.state.cou_way,
+                    restartDate:this.state.restartDate,
+                    reendDate:this.state.reendDate,
+                    usestartDate:this.state.usestartDate,
+                    useendDate:this.state.useendDate,
+                    cardNumber:this.props.location.query.user_cartId
                 })
                     .then(data=>{
                         this.setState({
@@ -169,32 +182,28 @@ class CouponUse extends Component {
             })
      }
      getTime1=(data)=>{
-         let time1={
-             start:data[0]._d.toLocaleString(),
-             end:data[1]._d.toLocaleString()
-         }
          this.setState({
-             getTime:time1
+             restartDate:data[0]._d.toLocaleString(),
+             reendDate:data[1]._d.toLocaleString(),
          })
      }
      getTime2=(data)=>{
-         let time2={
-             start:data[0]._d.toLocaleString(),
-             end:data[1]._d.toLocaleString()
-         }
          this.setState({
-             useTime:time2
+             usestartDate:data[0]._d.toLocaleString(),
+             useendDate:data[1]._d.toLocaleString(),
          })
      }
      searchCou=()=>{
          let obj={
-             cou_no:this.state.cou_no,
-             cou_type:this.state.cou_type,
-             cou_name:this.state.cou_name,
-             cou_way:this.state.cou_way,
-             getTime:this.state.getTime,
-             useTime:this.state.useTime,
-             user_cartId:this.props.location.query.user_cartId
+             cid:this.cou_no.value,
+             couponType:this.cou_type.value,
+             couponName:this.cou_name.value,
+             receiveType:this.cou_way.value,
+             restartDate:this.state.restartDate,
+             reendDate:this.state.reendDate,
+             usestartDate:this.state.usestartDate,
+             useendDate:this.state.useendDate,
+             cardNumber:this.props.location.query.user_cartId
          }
          this.setState({
              cou_no:this.cou_no.value,
@@ -216,21 +225,25 @@ class CouponUse extends Component {
          this.cou_name.value=''
          this.cou_way.value=''
          let obj={
-             cou_no:'',
-             cou_type:'',
-             cou_name:'',
-             cou_way:'',
-             getTime:'',
-             useTime:'',
-             user_cartId:this.props.location.query.user_cartId
+             cid:'',
+             couponType:'',
+             couponName:'',
+             receiveType:'',
+             restartDate:'',
+             reendDate:'',
+             usestartDate:'',
+             useendDate:'',
+             cardNumber:this.props.location.query.user_cartId
          }
          this.setState({
              cou_no:'',
              cou_type:'',
              cou_name:'',
              cou_way:'',
-             getTime:'',
-             useTime:'',
+             restartDate:'',
+             reendDate:'',
+             usestartDate:'',
+             useendDate:'',
          })
          this.props.user.searchCou(obj)
              .then(data=>{
@@ -256,10 +269,10 @@ class CouponUse extends Component {
                         <div className='topBox'>
                             优惠券类型：
                             <select name="" id="" ref={cou_type=>this.cou_type=cou_type}>
-                                <option value="全部">全部</option>
-                                <option value="优惠券">优惠券</option>
-                                <option value="免运费券">免运费券</option>
-                                <option value="资格券">资格券</option>
+                                <option value="">全部</option>
+                                <option value="0">优惠券</option>
+                                <option value="1">免运费券</option>
+                                <option value="2">资格券</option>
                             </select>
                         </div>
                         <div className='topBox'>
@@ -268,7 +281,7 @@ class CouponUse extends Component {
                         <div className='topBox'>
                             领取方式：
                             <select name="" id="" ref={cou_way=>this.cou_way=cou_way}>
-                                <option value="全部">全部</option>
+                                <option value="">全部</option>
                                 <option value="系统发放">系统发放</option>
                                 <option value="主动领取">主动领取</option>
                                 <option value="用户转让">用户转让</option>
@@ -289,15 +302,7 @@ class CouponUse extends Component {
                         <input type="button" value='导出数据'/>
                     </div>
                     <div>
-                        {/*<ul className='myUl'>*/}
-                        {/*    <li>全部</li>*/}
-                        {/*    <li>已使用</li>*/}
-                        {/*    <li>未使用</li>*/}
-                        {/*    <li>已过期</li>*/}
-                        {/*    <li>已作废</li>*/}
-                        {/*    <li>已转让</li>*/}
-                        {/*</ul>*/}
-                        <Table pagination={false} columns={this.state.columns} dataSource={this.state.coupon} />
+                        <Table pagination={{defaultCurrent:1,defaultPageSize:5}} columns={this.state.columns} dataSource={this.state.coupon} />
                     </div>
                 </div>
             </div>

@@ -23,6 +23,13 @@ import EditWareHouse from "./pages/Warehouse/warehouseList/EditWareHouse";
 
 import UserNews from "./pages/user/userlist/UserNews";
 import CooperativePartner from "./pages/user/other/CooperativePartner";
+import addPay from "./pages/system/payment/addPay";
+import IntegralUse from './pages/user/other/IntegralUse'
+import Distributor from "./pages/user/other/Distributor";
+import addNewsTem from "./pages/system/information/addNewsTem";
+import CouponUse from "./pages/user/other/CouponUse";
+import JoinActivity from "./pages/user/other/JoinActivity";
+
 function App() {
   return (
       <Router>
@@ -46,6 +53,12 @@ function App() {
 
                             <Route path='/home/usernews' component={UserNews}></Route>
                             <Route path='/home/cooperative' component={CooperativePartner}></Route>
+                            <Route path='/home/addPay' component={addPay}></Route>
+                            <Route path='/home/integral' component={IntegralUse}></Route>
+                            <Route path='/home/Distributor' component={Distributor}></Route>
+                            <Route path='/home/addNewsTem' component={addNewsTem}></Route>
+                            <Route path='/home/CouponUse' component={CouponUse}></Route>
+                            <Route path='/home/JoinActivity' component={JoinActivity}></Route>
                     </Home>
                 }>
                 </Route>
