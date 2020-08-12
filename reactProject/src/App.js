@@ -30,6 +30,11 @@ import addNewsTem from "./pages/system/information/addNewsTem";
 import CouponUse from "./pages/user/other/CouponUse";
 import JoinActivity from "./pages/user/other/JoinActivity";
 
+
+
+import addproduct_price_type from "./pages/product/product_config/addproduct_price_type";
+import Product_details from "./pages/product/pro_mange/Product_details";
+
 function App() {
   return (
       <Router>
@@ -50,6 +55,11 @@ function App() {
                             <Route path='/home/addAreaManage' component={addAreaManage}></Route>
                             <Route path='/home/addRole' component={addRole}></Route>
 
+
+
+
+                        <Route path='/home/product/product_config/addproduct_price_type' component={addproduct_price_type}></Route>
+                        <Route path='/home/product/pro_mange/Product_details' component={Product_details}></Route>
 
                             <Route path='/home/usernews' component={UserNews}></Route>
                             <Route path='/home/cooperative' component={CooperativePartner}></Route>
