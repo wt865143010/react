@@ -1,0 +1,60 @@
+.myhead3 {
+    text-align: left;
+}
+
+/*基本信息*/
+.row1 ,.row2{
+    display: flex;
+}
+/*.danhao {
+    margin-left: 300px;
+}*/
+.row1  div {
+    margin-left: 250px;
+}
+.myleft {
+    margin-left: 50px;
+}
+
+.row2 .kahao {
+    margin-left: 236px;
+}
+.row2 .heName{
+    margin-left: 250px;
+}
+.row2 .heTime{
+    margin-left: 285px;
+}
+
+.row3{
+    display: flex;
+}
+.row3 .tuihuo{
+    margin-left: 248px;
+}
+.row3 .lianxiren{
+     margin-left: 276px;
+}
+.row3 .thePhone{
+    margin-left: 273px;
+}
+.row4{
+    text-align: left;
+}
+.row4 .yourReason {
+    margin-left: 249px;
+}
+
+.row1,.row2,.row3,.row4{
+    margin-top: 30px;
+}
+
+
+.return_detail td {
+    padding: 10px 10px!important;
+}
+
+.return_Rea {
+    text-align: left;
+    padding-left: 143px;
+}

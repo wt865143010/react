@@ -1,0 +1,87 @@
+/** {
+    margin: 0;
+    padding: 0;
+}*/
+h2 {
+    text-align: left;
+}
+.product_base {
+    /*border: 1px solid red;*/
+    border-collapse: collapse;
+    border-spacing: 10px;
+}
+.product_base td {
+    padding:  2px 2px!important;
+}
+
+/*.ant-table-cell {
+    padding: 1px!important;
+}*/
+
+.myColumn {
+    padding: 10px 7px!important;
+    /*width: auto!important;*/
+    width: 100px!important;
+
+
+}
+.mybgc {
+    background-color: rgb(200,211,223);
+}
+
+.search_you td {
+    padding:  10px 20px!important;
+}
+
+
+/*上下架配置*/
+.upDownSetting td {
+    padding:  10px 20px!important;
+}
+
+
+/*物流信息*/
+.LogMessage td {
+    padding:  10px 20px!important;
+}
+
+
+.myPrice {
+    text-align: left;
+    padding-left: 138px;
+}
+
+.mySale {
+    margin-left: 150px;
+}
+.mySale td{
+    width: 100px!important;
+}
+
+.myJifen {
+    /*padding-left: 100px!important;*/
+}
+.myleft {
+    text-align: left;
+}
+
+.ant-descriptions-item-label{
+    font-weight: 600!important;
+
+}
+.myweight{
+    font-weight: 600;
+}
+
+th.table_title {
+    background-color: rgb(200,211,223)!important;
+}
+
+
+.mysousuo {
+    margin-top: 100px;
+}
+
+
+
+

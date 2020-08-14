@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.myshowProduct {
+    width: 270px;
+    height: 375px;
+    /*outline: 1px solid red ;*/
+    border: 1px solid #f1e5d5;
+    margin: 0 auto;
+    position: relative;
+    /*box-shadow:0px  -2px 4px 0 gray ;*/
+
+}
+.myshowProduct:hover {
+    box-shadow:0px  -2px 10px 0 gray ;
+    cursor: pointer;
+}
+
+.myshowProduct .thePro {
+    width: 262px;
+    height: 262px;
+    margin-left: 4px;
+}
+.myshowProduct .thePic {
+    position: relative;
+}
+.myshowProduct .thePic .theStore {
+    position: absolute;
+    top:8px;
+    left: 240px;
+}
+.myshowProduct .theTitle,.thePrice{
+    text-align: center;
+}
+.myshowProduct .theTitle{
+    margin-top: 10px;
+    padding: 0 5%;
+}
+.myshowProduct .theTitle span {
+    font-size: 16px;
+
+}
+.myshowProduct .thePrice{
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+.myshowProduct  .theHover{
+    position: absolute;
+    top: 369px;
+    left: 5px;
+}
+.myshowProduct  .theHover img {
+    width: 265px;
+    /*display: ;*/
+    visibility: hidden;
+}
+.myshowProduct:hover .theHover img {
+    visibility: visible;
+    /*display: block;*/
+}
+.myshowProduct .theTitle {
+    text-align: center;
+}
+.myshowProduct .theStore{
+    width: 18px;
+    height: 16px;
+    /*background: url("../../assets/images/homeProduct/favicon.png") no-repeat!important;*/
+    /*background: url("../../assets/images/homeProduct/favicon_active.png") no-repeat;*/
+}

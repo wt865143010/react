@@ -1,0 +1,100 @@
+* {
+    /*background-color: rgb(242,244,248);*/
+}
+
+.heng {
+    color: red;
+    display: inline;
+    margin-right: 10px;
+}
+.myreturn {
+    margin-left: 10px;
+}
+.mytitle {
+    text-align: left;
+    /*margin-top: 30px;*/
+}
+.jindu {
+    margin-top: 40px;
+    height: 120px;
+    background-color: rgb(254,246,247);
+    padding-top: 20px;
+}
+.myhead {
+    text-align: left;
+}
+
+.myorder {
+    display: flex;
+    height: 200px;
+
+}
+.mydan {
+    text-align: left;
+    border-right: 1px solid gray;
+    width: 30%;
+}
+.myyouhui {
+    width: 68%;
+
+}
+
+.mydan p {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0 0;
+}
+.myone {
+    color: gray;
+    font-weight: lighter;
+}
+.xiangshou {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-left: 20px;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+}
+.youhuiquan {
+    text-align: left;
+    margin-left: 20px;
+}
+
+
+/*收货信息*/
+.shouhuo {
+
+    display: flex;
+    text-align: left;
+    margin-top: 50px;
+    border: 1px solid rgba(223, 223, 223, 0.59);
+}
+.shouren {
+    width: 33%;
+    border-right: 1px solid gray;
+}
+.zhifu {
+    width: 34%;
+    border-right: 1px solid gray;
+}
+.fapiao {
+    width: 33%;
+}
+
+
+/*发货单*/
+.myHeadTitle{
+    background-color: rgb(204,204,204);
+    height: 30px;
+    line-height: 30px;
+}
+.yourHuo {
+    margin-top: 30px;
+}
+.yourHuo h2 {
+    text-align: left;
+}
+.yourHuo .myHeadTitle {
+    text-align: left;
+}

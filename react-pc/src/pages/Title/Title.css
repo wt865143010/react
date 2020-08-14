@@ -1,0 +1,32 @@
+.box{
+    padding: 0 50px 0 50px;
+    width: 100%;
+}
+.nav{
+    background-color: #F1F1F1!important;
+    height:60px;
+    width: 100%;
+}
+.navBox{
+    display:flex;
+    margin:30px 0 0 0;
+}
+.use{
+    padding:0 0 0 20px;
+    background-color: #F1F1F1 ;
+    width: 100px;
+    line-height:60px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.navChange{
+    border:none!important;
+    font-size: 17px!important;
+    line-height: 60px!important;
+}
+.navChange:hover{
+    border:none!important;
+    font-size: 17px!important;
+    color:#0089AF!important;
+    background-color: #D8D8D8!important;
+}

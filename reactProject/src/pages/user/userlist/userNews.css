@@ -1,0 +1,16 @@
+.userNewsTitle{
+    font-size: 25px;
+}
+.box{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid darkgrey;
+    text-align: left;
+}
+.box span{
+    font-size: 20px;
+    float: right;
+}
+.box strong{
+    font-size: 20px;
+}

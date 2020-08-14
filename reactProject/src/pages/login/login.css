@@ -1,0 +1,21 @@
+.bigImg{
+    height:900px;
+    width:100%;
+    text-align: center;
+
+}
+.loginBox{
+    width: 500px;
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    top: 30%;
+    left: 36%;
+    padding:30px;
+}
+.ant-form-item-required{
+    font-size: 17px!important;
+}
+.primary{
+    color: white!important;
+    background-color:#819371!important;
+}

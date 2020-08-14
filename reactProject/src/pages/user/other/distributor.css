@@ -1,0 +1,11 @@
+.infoBox{
+    width: 100%;
+    border-top: 1px solid black;
+    margin-bottom: 50px;
+}
+.Title{
+    font-size: 30px;
+}
+.DisTitle{
+    font-size: 25px;
+}

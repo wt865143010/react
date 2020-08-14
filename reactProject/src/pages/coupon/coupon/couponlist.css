@@ -1,0 +1,110 @@
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    float: left;
+}
+.couponlistbox{
+    padding: 5px 50px;
+    /* position: relative; */
+    clear: both;
+    background-color: rgb(242, 242, 242);
+    
+}
+.title{
+    float: left;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.content{
+    width: 100%;
+    /* background-color: chartreuse; */
+    height: 500px;
+    float: left;
+    margin-top: 20px;
+}
+.left1{
+    float: left;
+}
+.left1 input{
+    margin-left: 10px;
+}
+.left2{
+    float: left;
+    margin-left: 30px;
+}
+
+input{
+    outline: none;
+    border: 1px solid black;
+    height: 30px;
+}
+
+#coupontype{
+    width: 157px;
+    height: 30px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.searchtime{
+    float: left;
+}
+.input_bottom{
+    margin-top: 20px;
+}
+.couponstarttime{
+    padding-right: 24.5px;
+}
+.couponendtime{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.buttonlist{
+    float: left;
+}
+
+.searchbutton{
+    height: 30px;
+    margin-left: 100px;
+    width: 92px;
+    background-color: rgb(242, 242, 242);
+    border: 1px solid black;
+}
+.addcoupon{
+    height: 30px;
+    width: 110px;
+    margin-left: 40px;
+    background-color: rgba(22, 155, 213, 1);
+    border: 0px ;
+    border-radius: 5px;
+    color: white;
+}
+.couponlist{
+    width: 100%;
+    height: 500px;
+    /* background-color: violet; */
+    margin-top: 20px;
+}
+.buttonbox{
+    padding-inline-start:0px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+.buttonbox li{
+    list-style: none;
+    width:80px;
+    height: 40px;
+    /* background-color: black; */
+    float: left;
+    border: 1px solid black;
+    line-height: 40px;
+    cursor: pointer;
+}
+.couponcontent{
+    height: 500px;
+    width: 100%;
+    /* background-color: blueviolet; */
+}

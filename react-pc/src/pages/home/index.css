@@ -1,0 +1,39 @@
+.h1Style>h1{
+    margin-left: 45%;
+}
+.h1Style{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.imgSize{
+    /*width: 60%;*/
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.joinMe{
+    width: 150px;
+    height: 45px;
+    color: white;
+    background-color: #00A0AF;
+    text-align: center;
+    line-height: 45px;
+    margin-left: 45%;
+}
+.othBox{
+    width: 60%;
+    margin: 15px auto;
+    display: flex;
+}
+.othBox>div{
+    margin-left: 30px;
+    border: 1px solid rgba(169, 169, 169, 0.35);
+}
+.othBox>div:hover{
+    box-shadow: 0 0 5px #7e7e7e;
+}
+.othBox>div>p{
+    margin-left: 30px;
+}
+.finalBtn{
+    margin-bottom: 50px;
+}

@@ -1,0 +1,24 @@
+.register{
+    margin-left: 50px;
+}
+.register input{
+    margin-bottom: 30px;
+    border: 1px solid grey;
+}
+.register select{
+    margin-bottom: 30px;
+    width: 200px;
+}
+.msgBox{
+    background-color: #F9F9F9;
+}
+.role{
+    color:rgb(0,138,176)
+}
+.btnRegister button{
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+.btnRegister button:last-child{
+    color: #00A0AF;
+}

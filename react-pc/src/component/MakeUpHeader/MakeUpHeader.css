@@ -1,0 +1,44 @@
+.MakeUpHeadBox{
+    width: 80%;
+    margin: 0 auto;
+}
+.MakeUpHeadBoxTop{
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+.MakeUpHeadBoxTop>strong{
+    display: flex;
+    margin-top: 15px;
+}
+.MakeUpHeadBoxTop>div{
+    margin-left: 50px;
+
+}
+.MakeUpHeadBoxMid{
+    margin-top: 20px;
+}
+.MakeUpHeadBoxMid>span{
+    display: inline-block;
+    margin-left: 50px;
+}
+.MakeUpHeadBoxBot{
+    display: flex;
+    margin-top: 20px;
+}
+.MakeUpHeadBoxBot>ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin-left: 50px;
+}
+.MakeUpHeadBoxBot>ul>li{
+    width: 100px;
+}
+.tabs_tags{
+    display: inline-block;
+    width: 100px;
+}
+.ant-tabs-tabpane {
+    background-color: rgba(155, 155, 155, 0.63);
+}

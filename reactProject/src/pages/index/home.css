@@ -1,0 +1,30 @@
+#components-layout-demo-fixed-sider .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+.logoImg{
+    width: 80px;
+    float: left;
+}
+.site-layout .site-layout-background {
+    background: #fff;
+}
+#components-layout-demo-fixed .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+}
+.logOutBtn{
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: red;
+    line-height: 30px;
+    border-radius: 15px;
+    float: right;
+    margin-top: 20px;
+    color: white;
+}

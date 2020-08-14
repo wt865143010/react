@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.ant-table-selection {
+    /*padding-top: 100px!important;*/
+    /*left: 200px;*/
+    top:168px;
+}
+
+
+input {
+    /*-webkit-appearance: textfield;*/
+    border: 1px solid gray!important;
+}
+.quanxuan {
+    position: relative;
+}
+.quanxuan .myQuan {
+    font-size: 13px;
+    /*color: red;*/
+    position: absolute;
+    top: 85%;
+    left:4%;
+    z-index: 10;
+}
+.quanxuan .myChoo {
+    position: absolute;
+    top: 30%;
+    /*color: red;*/
+    left:1%;
+    z-index: 10;
+}
+
+.activityPlan {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+.activityPlan td {
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+
+.theRule td{
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+h2 {
+    text-align: left;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.myBold {
+    font-weight: 600;
+}
+
+.mySta1 {
+    padding-left: 72px;
+}
+.ant-descriptions-item-label{
+    font-weight: 600;
+}
+.mySta2 {
+    padding-left: 46px;
+}
+.mySta3 {
+    padding-left: 46px;
+}
+.mySta4 {
+    padding-left: 50px;
+}
+.mySta5  .ant-descriptions-item-label{
+    margin-left: -193px;
+}
+h3  {
+    text-align: left;
+    /*font-weight: 500;*/
+    font-weight: bold;
+}
+.quanxuan {
+    border: 1px solid black;
+}
+.quanxuan h2 {
+    background-color: rgb(0,204,255);
+    margin-top: 0;
+}
+
+th.table_title {
+    background-color: rgb(200,211,223)!important;
+}
+.ant-table-cell {
+    /*background-color: rgb(200,211,223)!important;*/
+}
+th.ant-table-cell.ant-table-selection-column {
+    background-color: rgb(200,211,223);
+}
+
+.ac_approval table {
+    width: 100%;
+    margin-top: -2px;
+}
+
+.activityPlan .myCengji {
+    background-color: rgb(0,204,255);
+}
+
+.ant-btn {
+    width: 120px!important;
+    margin-left: 20px;
+    /*margin-bottom: 5px;*/
+    border-radius: 3px;
+}
+.myQuanZ {
+    margin-top: 10px;
+}
+.myRu p {
+    text-align: left;
+    font-weight: 600;
+}
+.theRule {
+    width: 100%;
+}
+
+.myShenpi {
+    margin-top: -2px;
+}
+.approAc {
+    text-align: left;
+    padding-left: 387px;
+}
+
+.approAc  select {
+    width: 200px;
+    margin-left: 20px;
+}
+.myRemark1 {
+    display: table-cell;
+    margin-left: 100px;
+    width: 100%;
+
+    /*vertical-align: middle;*/
+}
+.myRemark1 label {
+    vertical-align: top;
+    margin-left: 387px;
+}
+textarea {
+    margin-left: 20px;
+}
+.approAc {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,33 @@
+.secondbox{
+    padding: 5px 50px;
+    text-align: left;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.secondsearch{
+    width: 95px;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    background-color: rgb(22,155,213);
+    float: right;
+    margin-right: 250px;
+    
+}
+.secondbutton{
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+    margin-right: 30px;
+}

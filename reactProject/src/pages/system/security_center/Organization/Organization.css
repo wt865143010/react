@@ -1,0 +1,35 @@
+.organizeBox table{
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 13px;
+    mso-cellspacing: 1px;
+
+}
+.organizeBox table input{
+    border: 1px solid #333;
+}
+.organize tr{
+    height: 20px;
+}
+
+.organize tr td:nth-child(3){
+    text-align: right;
+}
+.organize tr td:first-child{
+    text-align: right;
+}
+.sureBtn{
+    margin-top: 30px;
+}
+.sureBtn Button{
+    margin-left: 20px;
+}
+.organizeBox{
+    border: 1px solid #333333;
+    width: 100%;
+    margin: 0 auto;
+}
+.white{
+    color: black;
+}

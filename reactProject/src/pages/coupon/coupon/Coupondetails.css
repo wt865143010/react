@@ -1,0 +1,36 @@
+.detailsbox{
+    padding: 5px 50px;
+    text-align: left;
+}
+.detailscontent{
+    margin-top: 60px;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.detailsbotton{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(22,155,213);
+    float: right;
+}
+.choosebutton{
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+
+

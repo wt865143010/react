@@ -1,0 +1,37 @@
+
+
+
+.product_price>tr>td:first-of-type{
+    border: 1px solid black;
+    width: 200px;
+    text-align: right;
+    padding: 5px 10px;
+}
+.product_price>tr>td:last-of-type{
+    border: 1px solid black;
+    padding: 5px 10px;
+    text-align: left;
+
+
+
+}
+.midtable>td{
+    width: 130px;
+    border: 1px solid black;
+    text-align: center;
+}
+.up{
+    width: 150px;
+    margin-left: -260px;
+   background-color: #999999
+}
+
+.btn{
+    margin-top: 100px;
+    width: 100%;
+
+}
+table input{
+    border: 1px solid #7e7e7e;
+}
+

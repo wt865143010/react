@@ -1,0 +1,9 @@
+.setupcompletebox{
+    padding: 5px 50px;
+    text-align: left;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}

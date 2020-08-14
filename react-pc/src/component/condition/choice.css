@@ -1,0 +1,39 @@
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.choicebox ul>li{
+    float: left;
+    list-style: none;
+    padding: 0 21px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+.choicebox ul{
+    padding-inline-start:0;
+    margin-bottom:0;
+}
+
+.choicebox .gongxiao{
+    font-size: 16px;
+    color: #4A4A4A;
+    font-weight: 900;
+    width: 118px;
+    line-height: 50px;
+    float: left;
+    padding-left: 15px;
+}
+
+.open{
+    height: 100px;
+    transition:all 0.5s;
+}
+.hidden{
+    height: 0px;
+    transition: all 0.5s;
+}
+.beijing{
+    background-color: rgb(216,216,216);
+}

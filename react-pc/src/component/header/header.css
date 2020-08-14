@@ -1,0 +1,505 @@
+.homeHeader{
+    width: 100%;
+    height: 150px;
+    /*border: 1px solid red;  */
+    background-color: white;
+    position: fixed;
+    top: 0;
+    text-align: center;
+    z-index: 100;
+}
+.headerBody{
+    width: 80%;
+    text-align: left;
+    position: absolute;
+    margin-left: 10%;
+    background-color: white;
+    /*border: 1px solid gold;*/
+    display: flex;
+    margin-top: 10px;
+    z-index: 100;
+}
+.headerBody>a>img{
+    width: 100px;
+    height: 69px;
+}
+.headerR{
+    flex: 1;
+    margin: 0;
+}
+.headerRightTop{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    margin-top: 20px;
+}
+.headerRightTop div{
+    display: flex;
+    margin-right: 10px;
+}
+.headerRightTopUser{
+    position: absolute;
+    right: 50px;
+    /*margin-left: 350px;*/
+}
+.headerRightTopUser div:nth-of-type(3){
+    width: 150px;
+    height: 30px;
+    background-color: #00A0AF;
+    color: white;
+    padding-left: 30px;
+    line-height: 30px;
+}
+.headerRightBottom{
+    margin-top: 20px;
+}
+.headerRightBottom>ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin-left: 20px;
+}
+.headerRightBottom>ul>li{
+    flex: 1;
+    margin-right: 50px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+}
+.headerRightBottom ul>li>div:nth-of-type(1):hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    visibility: hidden;
+    z-index: 99;
+    background-color: white;
+}
+.selBox>ul{
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+}
+.selBox>ul:nth-of-type(1){
+    margin-left: 35%;
+}
+.selBox>ul>li{
+    font-size: 18px;
+    height: 30px;
+    margin-top: 30px;
+}
+.selBox>ul:nth-of-type(2){
+    margin-left: 100px;
+}
+.selBox>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.ageLOC:hover .selBox{
+    visibility: visible;
+}
+.selBox1{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: white;
+    z-index: 99;
+    /*border: 1px solid gold;*/
+    visibility: hidden;
+}
+.selBox1 ul{
+    list-style: none;
+    padding: 0;
+}
+.selBox1L{
+    margin-left: 20%;
+}
+.selBox1L>div{
+    display: flex;
+    margin-bottom: 50px;
+}
+.selBox1L>div>ul{
+    width: 200px;
+}
+.selBox1L>div>ul>a{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+}
+.selBox1L>div>ul>a:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox1R{
+    width: 300px;
+    height: 500px;
+    border-left: 1px solid darkgray;
+}
+.selBox1R>ul{
+    margin-left: 30px;
+}
+.selBox1R>ul>a{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+}
+.selBox1R>ul>a:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.hufu:hover .selBox1{
+    visibility: visible;
+}
+.selBox2{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: white;
+    z-index: 99;
+    visibility: hidden;
+}
+.selBox2>div{
+    display: flex;
+    margin-bottom: 50px;
+}
+.selBox2 ul{
+    list-style: none;
+    padding: 0;
+}
+.selBox2L{
+    margin-left: 20%;
+}
+
+.selBox2L>div>ul{
+    width: 200px;
+}
+.selBox2L>div>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox2L>div>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox2R{
+    width: 300px;
+    height: 500px;
+    border-left: 1px solid darkgray;
+}
+.selBox2R>ul{
+    margin-left: 30px;
+}
+.selBox2R>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox2R>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.nursing:hover .selBox2{
+    visibility: visible;
+}
+
+.selBox3{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: white!important;
+    z-index: 99;
+    visibility: hidden;
+}
+.selBox3L>div{
+    display: flex;
+    margin-bottom: 50px;
+}
+.selBox3 ul{
+    list-style: none;
+    padding: 0;
+}
+.selBox3L{
+    margin-left: 20%;
+}
+
+.selBox3L>div>ul{
+    width: 200px;
+}
+.selBox3L>div>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox3L>div>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox3R{
+    width: 300px;
+    height: 500px;
+    border-left: 1px solid darkgray;
+}
+.selBox3R>ul{
+     margin-left: 30px;
+ }
+.selBox3R>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox3R>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.NARS:hover .selBox3{
+    visibility: visible;
+}
+.selBox4{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: white;
+    z-index: 99;
+    visibility: hidden;
+}
+.selBox4 ul{
+    list-style: none;
+    padding: 0;
+}
+.selBox4L{
+    display: flex;
+    margin-left: 20%;
+}
+.selBox4L>ul{
+    width: 200px;
+}
+.selBox4L>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox4L>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox4R{
+    width: 300px;
+    height: 500px;
+    border-left: 1px solid darkgray;
+}
+.selBox4R>ul{
+    margin-left: 30px;
+}
+.selBox4R>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox4R>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.Nutrition:hover .selBox4{
+    visibility: visible;
+}
+
+
+.selBox5{
+     position: absolute;
+     left: 0;
+     top: 120px;
+     width: 100%;
+     height: 500px;
+     display: flex;
+    background-color: white!important;
+     visibility: hidden;
+    z-index: 99;
+ }
+.selBox5L>div{
+    display: flex;
+    margin-bottom: 50px;
+}
+.selBox5 ul{
+    list-style: none;
+    padding: 0;
+}
+.selBox5L{
+    margin-left: 20%;
+}
+
+.selBox5L>div>ul{
+    width: 200px;
+}
+.selBox5L>div>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox5L>div>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox5R{
+    width: 300px;
+    height: 500px;
+    border-left: 1px solid darkgray;
+}
+.suit:hover .selBox5{
+    visibility: visible;
+}
+
+
+
+.selBox6{
+    position: absolute;
+    left: 0;
+    top: 120px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    background-color: white!important;
+    z-index: 99;
+    visibility: hidden;
+}
+.selBox6L>div{
+    display: flex;
+    margin-bottom: 50px;
+}
+.selBox6 ul{
+    list-style: none;
+    padding: 0;
+}
+.selBox6L{
+    margin-left: 20%;
+}
+
+.selBox6L>div>ul{
+    width: 200px;
+}
+.selBox6L>div>ul>li{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.selBox6L>div>ul>li:hover{
+    color: #00A0AF;
+    cursor: pointer;
+}
+.selBox6R{
+    width: 300px;
+    height: 500px;
+    border-left: 1px solid darkgray;
+}
+.Discover_more:hover .selBox6{
+    visibility: visible;
+}
+
+.headerPersonalCenter{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    right: 20%;
+    top: 30px;
+    background-color: white!important;
+    visibility: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 99;
+    box-shadow: 0px 0px 2px black;
+}
+.headerPersonalCenter div{
+    width: 100%;
+    height: 30px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.headerPersonalCenter button{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: #61dafb;
+    color: white;
+    margin-top: 20px;
+    margin-left: 35%;
+}
+.headerPersonalCenter>div:nth-of-type(3){
+    margin-left: 25%;
+    margin-top: 10px;
+    padding: 0;
+    text-align: right;
+
+}
+.person:hover .headerPersonalCenter{
+    visibility: visible;
+}
+.person a{
+    color: white;
+}
+.shopBox{
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -480px;
+    background-color: white!important;
+    box-shadow: 0px 0px 2px black;
+    z-index: 99;
+    visibility: hidden;
+}
+.shopBox a{
+    color: white;
+}
+.shopBox>table{
+    width: 600px;
+    color: black;
+    text-align: center;
+    margin-top: 30px;
+}
+.shopBox>table>thead{
+    border-bottom: 1px solid darkgray;
+}
+.shopBox>table>tfoot{
+    border-top: 1px solid darkgray;
+}
+.seeCart{
+    background-color: #00A0AF;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    z-index: 99;
+}
+.myCartBox:hover .shopBox{
+    visibility: visible;
+}

@@ -1,0 +1,71 @@
+.footerDiv{
+    height: 470px;
+    width: 100%;
+    display: flex;
+    
+}
+.leftDiv{
+    width: 60%;
+    background-color: rgb(99 102 107);
+    display: flex;
+    color: white;
+    font-size: 15px;
+}
+.leftDiv ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.leftDiv h2{
+    color: white;
+}
+.leftDiv ul li{
+    margin-top: 26px;
+}
+.leftDiv div{
+    width: 25%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+.rightDiv{
+    width: 40%;
+    background-color: rgb(77 77 77);
+}
+.rightDiv .rightBox{
+    width: 40%;
+    margin: 80px 0 0 200px;
+}
+.imgBox img{
+    width: 20%;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+.imgBox img:not(:first-child){
+    margin-left: 40px;
+}
+.rightDiv h1{
+    color: white;
+}
+.rightDiv h2{
+    color: white;
+    margin-top: 50px;
+}
+.rightDiv hr{
+    background-color: dimgrey ;
+    border: none;
+    height: 1px;
+}
+.rightBox {
+    position: relative;
+}
+
+
+
+

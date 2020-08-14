@@ -1,0 +1,5 @@
+.showProBox{
+    display: flex;
+    padding: 40px 40px;
+    flex-wrap: wrap;
+}

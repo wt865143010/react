@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.theProductDetail {
+    width: 80%;
+    margin: 0 auto;
+    /*outline: 1px solid red;*/
+}
+.theProductDetail .thePicture {
+    border: 1px solid  gray;
+}
+.theProductDetail  .myPic {
+    margin-top: 50px;
+    display: flex;
+}
+
+.productDetail  .manzeng{
+    display: inline-block;
+    background-color: rgb(0,138,176);
+    width: 45px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    margin-right: 20px;
+}
+.addDel span{
+    display: inline-block;
+    font-size: 25px;
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    margin-top: -26px;
+}
+.addDel input {
+    width: 35px;
+    border: 1px solid gray;
+    text-align: center;
+}
+.addDel span:hover{
+    cursor: pointer;
+}
+
+ .myCart {
+    display:inline-block;
+    width: 200px;
+    height: 60px;
+    /*border: 1px solid red;*/
+    background-color: rgb(0,138,176);
+     text-align: center;
+     line-height: 60px;
+     color: white;
+}
+.myCart  .car {
+    margin-right: 10px;
+}
+.productDetail .myStore{
+    margin-left: 40px;
+}
+.rightPic{
+    margin-left: 40px;
+    padding-top: 70px;
+}
+.rightPic img {
+    width: 33px;
+    height: 33px;
+}
+.smallPic img{
+    width: 58px;
+    height: 58px;
+    margin-left: 215px;
+}
+.smallPic{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.theHead {
+    border-bottom: 1px solid gray;
+}
+.ssWiper h1 {
+    text-align: center;
+}
+.sswipp1{
+    display: flex!important;
+    /*margin: 0 auto;*/
+}
+.sswipp1 img{
+    width: 270px;
+    height: 270px;
+}
+
+.swipperCart{
+    display:inline-block;
+    width: 200px;
+    height: 60px;
+/*border: 1px solid red;*/
+    background-color: rgb(0,138,176);
+    text-align: center;
+    line-height: 60px;
+    color: white;
+}
+.swipperCart img{
+    width: 18px;
+    height: 18px;
+    display: inline!important;
+    margin-right: 5px;
+}
+.sswipp1 .theleft{
+    margin-left: 320px;
+}
+.ssWiper {
+    /*background-color: gray;*/
+}
+.ssWiper h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #008AB0;
+    font-size: 36px;
+}
+.theQ h1 {
+    color: #008AB0;
+    font-size: 36px;
+    text-align: center;
+}
+
+.theQ,.theaction,.selectBeauti{
+    margin-top: 48px;
+}
+
+.userQuestion  {
+    display: flex!important;
+}
+.userQuestion img {
+    width: 83px;
+    height: 92px;
+}
+.userQuestion h6{
+    font-size: 24px;
+}
+.userQuestion p {
+    font-size: 18px;
+}
+.userQuestion  .wordQ{
+    padding-left: 38px;
+}
+.productTitile span {
+    font-weight: bolder;
+}
+.productTitile p{
+    margin-left: 20px;
+}
+
+.theaction h1 {
+    color: #008AB0;
+    font-size: 36px;
+    text-align: center;
+}
+.theaction p {
+    text-align: center;
+}
+
+.selectBeauti h1{
+    color: #008AB0;
+    font-size: 36px;
+    text-align: center;
+}
+
+
+.beauti1 span:nth-child(1){
+    margin: 0 20px 0 20px;
+}
+.beauti1 span:nth-child(3){
+    margin-left: 555px;
+}
+.beauti2 span:nth-child(1){
+    margin: 0 20px 0 20px;
+}
+.beauti2 span:nth-child(3){
+    margin-left: 519px;
+}
+.beauti1,.beauti2{
+    line-height: 28px;
+}
+.beauti1,.beauti2 span {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.beauti1,.beauti2 {
+    margin-top: 30px;
+}
+.theaction p{
+    font-size: 16px;
+}
+.smallPic img{
+    border: 1px solid gray;
+}
+
+.myPic .productDetail {
+    margin-left: 80px;
+}
+.productDetail p:nth-child(1){
+    font-size: 14px;
+    color: #888;
+}
+.productDetail p:nth-child(2),p:nth-child(3) {
+    font-weight: 400;
+    font-size: 24px;
+    color: #2B2B2B;
+}
+.productDetail p:nth-child(4){
+    /*white-space: nowrap;   规定段落中的文本不进行换行*/
+    font-size: 16px;
+    color: #4A4A4A;
+}
+.productDetail .thediscount{
+    color: #888;
+    font-size: 16px;
+}
+.thediscount span{
+    color: #6FC4D6;
+}
+
+.productDetail p:nth-child(7){
+    font-size: 24px;
+    color: #72C4D5;
+    font-weight: 700;
+}
+
+.productDetail p:nth-child(7) span {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.productDetail p:nth-child(8) .cuxiao{
+    font-size: 20px;
+    color: #008AB0;
+    font-weight: 700;
+}
+

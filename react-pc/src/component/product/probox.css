@@ -1,0 +1,54 @@
+.proBox{
+    width: 250px;
+    height: 450px;
+    box-shadow: 0 0 1px black;
+    position: relative;
+
+
+    margin-left: 30px;
+}
+.proBoxTop>a>img:nth-of-type(1){
+    width: 250px;
+}
+.proBoxTop>img:nth-of-type(1){
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.proBoxMid{
+    text-align: center;
+}
+.proBoxMid>p{
+    margin: 10px 0 0 0;
+}
+.proBoxMid>p:nth-of-type(2){
+     width: 200px;
+     margin-left: 25px;
+ }
+.proBoxMid>p:nth-of-type(3){
+    font-size: 16px;
+}
+.proBoxBot{
+    margin-top: 10px;
+}
+.proBoxBot>img{
+    width: 35px;
+    position: absolute;
+    bottom: 12px;
+    right: 60px;
+}
+.proBoxBot>div{
+    width: 100px;
+    display: flex;
+    margin-left: 30px;
+}
+.proBoxBot>div>input{
+    width: 40px;
+    text-align: center;
+    border: 1px solid darkgrey;
+}
+.proBoxBot>div>button{
+    width: 30px;
+    text-align: center;
+}

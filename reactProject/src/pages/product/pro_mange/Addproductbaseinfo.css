@@ -1,0 +1,51 @@
+.Addproductbaseinfo>tr>td:first-of-type{
+    border: 1px solid black;
+    width: 200px;
+    text-align: right;
+    padding: 5px 10px;
+}
+.Addproductbaseinfo>tr>td:last-of-type{
+    border: 1px solid black;
+    width: 800px;
+    padding: 5px 10px;
+    text-align: left;
+
+
+}
+.Addproductbaseinfo input{
+    width:150px;
+    border:1px solid #595959 !important;
+}
+#directSalesTime{
+    border: none!important;
+}
+p{
+    display: flex;
+    width:1000px;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+p>span:first-of-type{
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 50px;
+}
+p>span:last-of-type{
+    margin-left: 50px;
+    color: red;
+    line-height: 50px;
+}
+.product_res{
+    display: flex;
+}
+.product_res>p{
+    width: 100px;
+    border: none;
+}
+.next {
+    background-color: deepskyblue!important;
+    border-radius: 50px!important;
+    width: 150px!important;
+    margin-left: 50px;
+
+}

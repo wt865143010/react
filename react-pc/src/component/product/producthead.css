@@ -1,0 +1,25 @@
+.productNav{
+    width: 100%;
+    margin: 0 auto;
+}
+.productTitle{
+    font-size: 40px;
+    text-align: center;
+    margin: 30px 0;
+}
+.navPro div{
+    padding:  10px 10px;
+    margin-top: 10px;
+    background-color: rgb(241,241,241);
+}
+
+.specialText{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.productNav span{
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 18px;
+}

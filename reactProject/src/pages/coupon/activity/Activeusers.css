@@ -1,0 +1,66 @@
+.activeusersbox{
+    padding: 5px 50px;
+    text-align: left;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.buttonclass{
+    
+    width: 100px;
+    height: 35px;
+    float: left;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(22,155,213);
+    line-height: 35px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.chooseuserbutton{
+    width: 88px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background-color: rgb(22,155,213);
+    float: left;
+    margin-left: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.activityusertable{
+    height: 30px;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 13px;
+    background-color: rgb(86,181,221);
+}
+.tableleft{
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    float: left;
+    background-color: rgb(200,211,223);
+}
+.tableright{
+    width: 360px;
+    height: 30px;
+    float: left;
+}
+.userrulesbutton{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    float: left;
+    margin-left: 20px;
+}

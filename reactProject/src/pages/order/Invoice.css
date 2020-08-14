@@ -1,0 +1,57 @@
+.myTT Button{
+    margin-left: 45px;
+}
+.stateCss Button {
+    background-color: rgb(215,215,215);
+    margin-left: 10px;
+}
+
+.Myinvoice .wuliu {
+    text-align: center;
+}
+
+.Myinvoice .wuliu input {
+    border: 1px solid black;
+}
+.wuliu {
+    /*display: flex;*/
+}
+
+.mmyy {
+    clear: both;
+}
+.ant-row {
+    /*width: 300px;*/
+    /*float: left;*/
+    /*float: left!important;*/
+}
+.ant-form-item-control-input-content {
+    /*display: inline!important;*/
+}
+.wuliu .fahuo1 {
+    margin-right: 30px;
+}
+
+.invoiceLine2 {
+    margin-top: 20px;
+    text-align: center;
+}
+.receiveN {
+    margin-left: 30px;
+}
+
+.Myinvoice .myinput {
+    border: 1px solid black;
+}
+.myTT {
+    margin-top: 20px;
+}
+.stateCss {
+    margin-top: 20px;
+}
+
+
+.abc {
+    width: 200px;
+    border: 1px solid red!important;
+}

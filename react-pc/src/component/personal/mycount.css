@@ -1,0 +1,67 @@
+.personal{
+    margin-left: 50px;
+}
+.personal ul{
+    list-style: none;
+    float: left;
+    padding: 0;
+}
+.personal li{
+    margin-top: 18px;
+    height: 25px;
+}
+.rightUl{
+    margin-left: 60px;
+}
+.rightUl li{
+    color: #319cbd;
+}
+
+.tableA{
+border: 1px solid rgba(164, 164, 164, 0.55);
+    width: 80%;
+    font-size: 18px;
+    padding: 20px;
+}
+.myOrder{
+    margin-left: 50px;
+}
+.tableA tr{
+    height: 60px;
+    border-bottom: 1px  solid rgba(159, 159, 159, 0.49);
+
+}
+/*我的收藏*/
+/*我的积分*/
+.score{
+    margin:0 50px;
+}
+.score .scoreTable{
+    border: 1px solid rgba(156, 156, 156, 0.51);
+    padding: 50px 0;
+    margin: 40px 0;
+}
+.jiFen{
+    width: 50%;
+   text-align: center;
+    display: inline-block;
+}
+.jiFen p{
+    font-size: 15px;
+}
+.jiFen p:first-child{
+    font-size: 30px;
+    color: #319cbd;
+    margin: 0;
+}
+.borderL{
+    border-right: 1px solid rgba(156, 156, 156, 0.51) ;
+}
+
+
+.btnCss{
+    border: 1px solid  #319cbd;
+    display: inline-block;
+    padding: 10px 30px;
+    color: #319cbd;
+}

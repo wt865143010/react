@@ -1,0 +1,12 @@
+.showBox>div{
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+    flex-wrap: wrap;
+}
+.showBox>div>div{
+    margin-top: 30px;
+}
+.header{
+    height: 150px;
+}

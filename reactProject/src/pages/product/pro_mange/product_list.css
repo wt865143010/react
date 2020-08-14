@@ -1,0 +1,90 @@
+.allproduct{
+    list-style: none;
+}
+.allproduct>li{
+    width: 100px;
+    border: 1px solid #a4a4a4;
+}
+.title{
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+    height: 40px;
+    line-height:40px;
+
+}
+
+#serach{
+    display: flex;
+    width:1280px;
+    border: 1px solid #9b9b9b;
+    text-align: center;
+    flex-wrap: wrap;
+    height: 150px;
+    margin-top: 20px;
+
+
+}
+.product_list{
+    margin-left: 10px;
+}
+.productlist_btn{
+    margin-top: 20px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+.productlist_btn Button:first-of-type{
+    background-color: rgb(22,155,213);
+    border-radius:10px;
+}
+.productlist_btn button:not(first-of-type){
+    background-color: rgb(0,153,0);
+    border-radius:10px;
+}
+.allproduct{
+    display: flex;
+    width: 600px;
+    margin-top: 20px;
+}
+.allproduct>li:hover{
+    cursor: pointer;
+}
+.ant-pagination.mini .ant-pagination-item{
+    width: 20px!important;
+}
+.ant-pagination-prev button, .ant-pagination-next button{
+    width: 20px!important;
+}
+.ant-pagination-prev {
+    width: 20px!important;
+}
+
+#serach>span{
+    width: 250px;
+    margin-top: 20px;
+}
+#serach>span>input{
+    width:120px!important;
+
+}
+.select-drop-down{
+    width:100px;
+
+}
+.ant-space-vertical{
+    height: 50px!important;
+
+    width: 100px!important;
+}
+.ant-picker-range{
+    width: 200px;
+}
+.serach_btn{
+    margin-left: 300px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+
+
